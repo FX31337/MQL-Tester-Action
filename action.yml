@@ -1,4 +1,5 @@
 # action.yml
+---
 name: 'EA Tester'
 description: 'Runs MQL program'
 author: 'kenorb'
@@ -7,7 +8,7 @@ inputs:
     description: 'The name of the EA to test'
     # required: true
     # default: 'World'
-#outputs:
+# outputs:
 #  foo: # id of output
 #    description: 'Foo'
 runs:
@@ -15,3 +16,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.TestExpert }}
+branding:
+  icon: 'bar-chart'
+  color: 'green'
