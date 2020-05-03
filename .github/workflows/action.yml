@@ -6,7 +6,21 @@ on:
   - push
 
 jobs:
-  Test-EA:
+  Test-EA-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ea31337/ea-tester-action@dev
+        with:
+          OptTrace: true
+          OptVerbose: true
+          FOO: "bla"
+          BAR: true
+  Test-EA-master:
     runs-on: ubuntu-latest
     steps:
       - uses: ea31337/ea-tester-action@master
+        with:
+          OptTrace: true
+          OptVerbose: true
+          FOO: "bla"
+          BAR: true

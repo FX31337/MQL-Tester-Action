@@ -29,11 +29,21 @@
 
 This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scripts).
 
-## Inputs
+## Main Inputs
 
 ### `TestExpert`
 
 The name of the Expert Advisor to test.
+
+## Other Inputs
+
+### `OptTrace`
+
+Enables trace mode. It provides extensive debugging messages.
+
+### `OptVerbose`
+
+Enables verbose mode. It provides more detailed messages.
 
 <!--
 ## Outputs

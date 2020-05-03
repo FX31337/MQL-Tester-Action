@@ -4,18 +4,26 @@ name: 'EA Tester'
 description: 'Runs MQL program'
 author: 'kenorb'
 inputs:
-  TestExpert:  # id of input
+  OptTrace:
+    description: 'Enables trace mode (debug)'
+  OptVerbose:
+    description: 'Enables verbose mode'
+    default: true
+  TestExpert:
     description: 'The name of the EA to test'
     # required: true
-    # default: 'World'
 # outputs:
 #  foo: # id of output
 #    description: 'Foo'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.TestExpert }}
+  # args:
+  # - "-v"
+  env:
+    OPT_TRACE: ${{ inputs.OptTrace }}
+    OPT_VERBOSE: ${{ inputs.OptVerbose }}
+    TEST_EXPERT: ${{ inputs.TestExpert }}
 branding:
   icon: 'bar-chart'
   color: 'green'
