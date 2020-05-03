@@ -6,11 +6,11 @@ on:
   - push
 
 jobs:
-  Test-EA:
+  Script:
     runs-on: ubuntu-latest
     steps:
       - uses: ea31337/mql-action@dev
         with:
           OptTrace: true
           OptVerbose: true
-          TestExpert: "MACD"
+          Script: "PrintPaths"

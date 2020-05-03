@@ -9,6 +9,8 @@ inputs:
   OptVerbose:
     description: 'Enables verbose mode'
     default: true
+  Script:
+    description: 'The name of the script to run'
   TestExpert:
     description: 'The name of the EA to test'
     # required: true
@@ -23,6 +25,7 @@ runs:
   env:
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}
+    SCRIPT: ${{ inputs.Script }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
 branding:
   icon: 'bar-chart'

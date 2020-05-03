@@ -34,6 +34,10 @@ This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scr
 
 ## Main Inputs
 
+### `Script`
+
+The name of the script to run.
+
 ### `TestExpert`
 
 The name of the Expert Advisor to test.
