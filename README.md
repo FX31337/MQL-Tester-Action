@@ -2,6 +2,7 @@
 <!-- [![Release][github-release-image]][github-release-link] -->
 <!-- [![Docker image][docker-build-image]][docker-build-link] -->
 [![Status][gha-image-docker-master]][gha-link-docker-master]
+[![Status][gha-image-lint-master]][gha-link-lint-master]
 [![][tg-channel-image]][tg-channel-link]
 [![][tg-chat-image]][tg-chat-link]
 [![Edit][gitpod-image]][gitpod-link]
@@ -18,6 +19,8 @@
 <!-- GitHub Actions build links -->
 [gha-link-docker-master]: https://github.com/EA31337/EA-Tester-Action/actions?query=workflow%3ADocker
 [gha-image-docker-master]: https://github.com/EA31337/EA-Tester-Action/workflows/Docker/badge.svg
+[gha-link-lint-master]: https://github.com/EA31337/EA-Tester-Action/actions?query=workflow%3ALint
+[gha-image-lint-master]: https://github.com/EA31337/EA-Tester-Action/workflows/Lint/badge.svg
 <!-- Gitpod links -->
 [gitpod-image]: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
 [gitpod-link]: https://gitpod.io/#https://github.com/EA31337/EA-Tester-Action
