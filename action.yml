@@ -18,8 +18,8 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  # args:
-  # - "-v"
+  args:
+    - "-v"
   env:
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}

@@ -13,8 +13,7 @@ jobs:
         with:
           OptTrace: true
           OptVerbose: true
-          FOO: "bla"
-          BAR: true
+          TestExpert: "MACD"
   Test-EA-master:
     runs-on: ubuntu-latest
     steps:
@@ -22,5 +21,4 @@ jobs:
         with:
           OptTrace: true
           OptVerbose: true
-          FOO: "bla"
-          BAR: true
+          TestExpert: "MACD"
