@@ -1,0 +1,12 @@
+---
+name: Action
+
+on:
+  - pull_request
+  - push
+
+jobs:
+  Test-EA:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ea31337/ea-tester-action@master
