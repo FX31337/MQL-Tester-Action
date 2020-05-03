@@ -9,7 +9,7 @@ jobs:
   Test-EA-dev:
     runs-on: ubuntu-latest
     steps:
-      - uses: ea31337/ea-tester-action@dev
+      - uses: ea31337/mql-action@dev
         with:
           OptTrace: true
           OptVerbose: true
@@ -18,7 +18,7 @@ jobs:
   Test-EA-master:
     runs-on: ubuntu-latest
     steps:
-      - uses: ea31337/ea-tester-action@master
+      - uses: ea31337/mql-action@master
         with:
           OptTrace: true
           OptVerbose: true
