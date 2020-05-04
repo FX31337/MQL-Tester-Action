@@ -9,7 +9,7 @@ jobs:
   Script:
     runs-on: ubuntu-latest
     steps:
-      - uses: ea31337/mql-action@dev
+      - uses: ea31337/mql-tester-action@dev
         with:
           OptTrace: true
           OptVerbose: true
