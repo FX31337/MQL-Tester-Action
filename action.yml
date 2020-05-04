@@ -4,6 +4,9 @@ name: 'EA Tester'
 description: 'Runs MQL program'
 author: 'kenorb'
 inputs:
+  MtVersion:
+    description: 'Version of the platform to install'
+    default: '4.0.0.1260'
   OptTrace:
     description: 'Enables trace mode (debug)'
   OptVerbose:
@@ -21,6 +24,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
+    MT_VER: ${{ inputs.MtVersion }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}
     SCRIPT: ${{ inputs.Script }}

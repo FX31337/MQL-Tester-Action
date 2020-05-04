@@ -44,6 +44,10 @@ The name of the Expert Advisor to test.
 
 ## Other Inputs
 
+### `MtVersion`
+
+Version of the MetaTrader platform to install (e.g. _4.0.0.1260_).
+
 ### `OptTrace`
 
 Enables trace mode. It provides extensive debugging messages.
