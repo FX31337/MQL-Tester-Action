@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/ea31337/ea-tester/ea-tester:dev
+FROM ea31337/ea-tester
 MAINTAINER kenorb
 ENV TERMINAL_DIR="/home/ubuntu/.wine/drive_c/Program Files/MetaTrader 4"
 ENV WINE_PATH=/home/ubuntu/.wine
