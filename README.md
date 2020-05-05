@@ -22,11 +22,17 @@ The name of the script to run.
 
 The name of the Expert Advisor to test.
 
+## Backtest Inputs
+
+### `TestPeriod`
+
+Timeframe to use for the test (default: _M30_).
+
 ## Other Inputs
 
 ### `MtVersion`
 
-Version of the MetaTrader platform to install (e.g. _4.0.0.1260_).
+Version of the MetaTrader platform to install (default: _4.0.0.1260_).
 
 ### `OptTrace`
 

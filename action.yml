@@ -13,6 +13,9 @@ inputs:
     description: 'Enables verbose mode'
   Script:
     description: 'The name of the script to run'
+  TestPeriod:
+    description: 'Timeframe to use for the test'
+    default: M30
   TestExpert:
     description: 'The name of the EA to test'
     # required: true
@@ -23,6 +26,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
+    BT_PERIOD: ${{ inputs.TestPeriod }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}
     SCRIPT: ${{ inputs.Script }}

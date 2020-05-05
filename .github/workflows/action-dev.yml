@@ -34,6 +34,12 @@ jobs:
         with:
           OptVerbose: true
           TestExpert: "TestBands.mq4"
+      - name: Run TestEnvelopes
+        uses: ea31337/mql-tester-action@dev
+        with:
+          OptVerbose: true
+          TestExpert: "TestEnvelopes.mq4"
+          TestPeriod: M1
       - name: Run TestTimeframes
         uses: ea31337/mql-tester-action@dev
         with:
