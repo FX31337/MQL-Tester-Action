@@ -8,17 +8,11 @@ set -e
 [ -n "$INPUT_OPTVERBOSE" ] && cat /etc/passwd
 [ -n "$INPUT_OPTVERBOSE" ] && groups
 [ -n "$INPUT_OPTVERBOSE" ] && id && set
-[ -n "$INPUT_OPTVERBOSE" ] && tree -sup /github /home /opt
-
-# Fix HOME folder permissions.
-[ ! -w "$HOME" ] && {
-  sudo chown -vR "$USER" "$HOME"
-}
+[ -n "$INPUT_OPTVERBOSE" ] && tree -sup /github /home
 
 # Load shell functions.
 # shellcheck disable=SC1091
 source /opt/scripts/.funcs.cmds.inc.sh
 
 # Install platform.
-cd "$HOME"
 install_mt "$INPUT_MTVERSION"
