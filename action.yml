@@ -11,7 +11,6 @@ inputs:
     description: 'Enables trace mode (debug)'
   OptVerbose:
     description: 'Enables verbose mode'
-    default: true
   Script:
     description: 'The name of the script to run'
   TestExpert:
@@ -24,7 +23,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    MT_VER: ${{ inputs.MtVersion }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}
     SCRIPT: ${{ inputs.Script }}

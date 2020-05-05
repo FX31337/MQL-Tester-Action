@@ -4,9 +4,6 @@
 # Initialize.
 set -e
 [ -n "$INPUT_OPTVERBOSE" ] && echo "Loading ${BASH_SOURCE[0]}... " >&2
-[ -n "$INPUT_OPTVERBOSE" ] && echo "$USER"
-[ -n "$INPUT_OPTVERBOSE" ] && cat /etc/passwd
-[ -n "$INPUT_OPTVERBOSE" ] && groups
 [ -n "$INPUT_OPTVERBOSE" ] && id && set
 [ -n "$INPUT_OPTVERBOSE" ] && tree -sup /github /home
 
@@ -16,3 +13,6 @@ source /opt/scripts/.funcs.cmds.inc.sh
 
 # Install platform.
 install_mt "$INPUT_MTVERSION"
+
+# Run backtest.
+run_backtest -v
