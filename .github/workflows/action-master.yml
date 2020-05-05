@@ -2,15 +2,40 @@
 name: Action@master
 
 on:
-  - pull_request
-  - push
+  pull_request:
+    branches:
+      - 'master'
+    paths-ignore:
+      - '*.md'
+  push:
+    branches:
+      - 'master'
+    paths-ignore:
+      - '*.md'
 
 jobs:
-  Script:
+  Scripts:
     runs-on: ubuntu-latest
     steps:
-      - uses: ea31337/mql-tester-action@master
+      - name: Run PrintPaths
+        uses: ea31337/mql-tester-action@master
         with:
           OptTrace: true
           OptVerbose: true
           Script: "PrintPaths"
+  Experts:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+    steps:
+      - name: Run TestBands
+        uses: ea31337/mql-tester-action@master
+        with:
+          OptVerbose: true
+          TestExpert: "TestBands.mq4"
+      - name: Run TestTimeframes
+        uses: ea31337/mql-tester-action@master
+        with:
+          OptVerbose: true
+          TestExpert: "TestTimeframes.mq4"
