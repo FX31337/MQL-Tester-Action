@@ -6,11 +6,20 @@ on:
   - push
 
 jobs:
-  Script:
+  Scripts:
     runs-on: ubuntu-latest
     steps:
-      - uses: ea31337/mql-tester-action@dev
+      - name: Run PrintPaths
+        uses: ea31337/mql-tester-action@dev
         with:
           OptTrace: true
           OptVerbose: true
           Script: "PrintPaths"
+  Experts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run TestBands
+        uses: ea31337/mql-tester-action@dev
+        with:
+          OptVerbose: true
+          TestExpert: "TestBands.mq4"
