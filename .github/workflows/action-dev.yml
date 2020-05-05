@@ -3,9 +3,13 @@ name: Action@dev
 
 on:
   pull_request:
+    branches:
+      - 'dev*'
     paths-ignore:
       - '*.md'
   push:
+    branches:
+      - 'dev*'
     paths-ignore:
       - '*.md'
 
