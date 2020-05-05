@@ -17,9 +17,17 @@ jobs:
           Script: "PrintPaths"
   Experts:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 2
     steps:
       - name: Run TestBands
         uses: ea31337/mql-tester-action@dev
         with:
           OptVerbose: true
           TestExpert: "TestBands.mq4"
+      - name: Run TestTimeframes
+        uses: ea31337/mql-tester-action@dev
+        with:
+          OptVerbose: true
+          TestExpert: "TestTimeframes.mq4"
