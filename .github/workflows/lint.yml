@@ -5,6 +5,17 @@ on:
   - pull_request
   - push
 jobs:
+  ShellCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Shell Check
+        uses: luizm/action-sh-checker@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          sh_checker_comment: true
+          sh_checker_shfmt_disable: true
   YAML:
     runs-on: ubuntu-latest
     steps:

@@ -2,13 +2,14 @@
 # Entrypoint script used by Dockerfile.
 
 # Initialize.
-[ -n "$OPT_VERBOSE" ] && echo "Loading ${BASH_SOURCE[0]}... " >&2
-
-# Show variables.
-set
+set -e
+[ -n "$INPUT_OPTVERBOSE" ] && echo "Loading ${BASH_SOURCE[0]}... " >&2
+[ -n "$INPUT_OPTVERBOSE" ] && set
 
 # Load shell functions.
+# shellcheck disable=SC1091
 source /opt/scripts/.funcs.cmds.inc.sh
 
 # Install platform.
-install_mt
+[ -n "INPUT_OPTTRACE" ] && set -x
+install_mt "$INPUT_MTVERSION"
