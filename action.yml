@@ -12,7 +12,7 @@ inputs:
     default: '1'
   BtYears:
     description: 'Specifies year or range of years to test'
-    default: '2019'
+    default: '2018'
   MtVersion:
     description: 'Version of the platform to install'
     default: '4.0.0.1260'
