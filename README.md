@@ -24,6 +24,10 @@ The name of the Expert Advisor to test.
 
 ## Backtest Inputs
 
+### `BtCurrency`
+
+Base currency to use (default: _USD_).
+
 ### `BtDays`
 
 Specifies range of days in each month to test (default: 1-31).

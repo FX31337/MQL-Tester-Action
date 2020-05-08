@@ -7,6 +7,9 @@ inputs:
   BtDays:
     description: 'Specifies range of days in each month to test'
     default: '1-31'
+  BtCurrency:
+    description: 'Base currency to use'
+    default: 'USD'
   BtMonths:
     description: 'Specifies range of months in each year to test'
     default: '1'
@@ -47,6 +50,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
+    BT_CURRENCY: ${{ inputs.BtCurrency }}
     BT_DAYS: ${{ inputs.BtDays }}
     BT_MONTHS: ${{ inputs.BtMonths }}
     BT_PERIOD: ${{ inputs.TestPeriod }}
