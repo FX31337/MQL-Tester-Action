@@ -4,6 +4,15 @@ name: 'EA Tester'
 description: 'Runs MQL program'
 author: 'kenorb'
 inputs:
+  BtDays:
+    description: 'Specifies range of days in each month to test'
+    default: '1-31'
+  BtMonths:
+    description: 'Specifies range of months in each year to test'
+    default: '1'
+  BtYears:
+    description: 'Specifies year or range of years to test'
+    default: '2019'
   MtVersion:
     description: 'Version of the platform to install'
     default: '4.0.0.1260'
@@ -36,6 +45,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
+    BT_DAYS: ${{ inputs.BtDays }}
+    BT_MONTHS: ${{ inputs.BtMonths }}
+    BT_YEARS: ${{ inputs.BtYears }}
     BT_PERIOD: ${{ inputs.TestPeriod }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}

@@ -24,6 +24,20 @@ The name of the Expert Advisor to test.
 
 ## Backtest Inputs
 
+### `BtDays`
+
+Specifies range of days in each month to test (default: 1-31).
+
+### `BtMonths`
+
+Specifies range of months in each year to test (default: 1).
+
+### `BtYears`
+
+Specifies year or range of years to test (default: 2019).
+
+### `BtYears`
+
 ### `TestPeriod`
 
 Timeframe to use for the test (default: _M30_).
