@@ -4,12 +4,15 @@ name: 'EA Tester'
 description: 'Runs MQL program'
 author: 'kenorb'
 inputs:
-  BtDays:
-    description: 'Specifies range of days in each month to test'
-    default: '1-31'
   BtCurrency:
     description: 'Base currency to use'
     default: 'USD'
+  BtDeposit:
+    description: 'Deposit amount to use'
+    default: 10000
+  BtDays:
+    description: 'Specifies range of days in each month to test'
+    default: '1-31'
   BtMonths:
     description: 'Specifies range of months in each year to test'
     default: '1'
@@ -52,6 +55,7 @@ runs:
   env:
     BT_CURRENCY: ${{ inputs.BtCurrency }}
     BT_DAYS: ${{ inputs.BtDays }}
+    BT_DEPOSIT: ${{ inputs.BtDeposit }}
     BT_MONTHS: ${{ inputs.BtMonths }}
     BT_PERIOD: ${{ inputs.TestPeriod }}
     BT_YEARS: ${{ inputs.BtYears }}

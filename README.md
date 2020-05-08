@@ -24,6 +24,10 @@ The name of the Expert Advisor to test.
 
 ## Backtest Inputs
 
+### `BtDeposit`
+
+Deposit amount to use (default: _10000_).
+
 ### `BtCurrency`
 
 Base currency to use (default: _USD_).
@@ -39,8 +43,6 @@ Specifies range of months in each year to test (default: 1).
 ### `BtYears`
 
 Specifies year or range of years to test (default: 2019).
-
-### `BtYears`
 
 ### `TestPeriod`
 
