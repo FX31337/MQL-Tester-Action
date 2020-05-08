@@ -61,6 +61,7 @@ runs:
     RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
     SCRIPT: ${{ inputs.Script }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
+    WORKDIR: "/github/workspace"
 branding:
   icon: 'bar-chart'
   color: 'green'
