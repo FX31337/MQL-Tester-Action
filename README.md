@@ -56,13 +56,17 @@ Runs command on SET configuration (e.g. `file_get URL`).
 
 Runs command after successful test.
 
-### `RunOnFail`
+### `RunOnError`
 
-Runs command after test failure.
+Runs command on error.
 
 ### `RunOnExit`
 
 Runs command on exit (after the test).
+
+### `RunOnFail`
+
+Runs command after test failure.
 
 ## Advanced Inputs
 

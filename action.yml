@@ -34,10 +34,12 @@ inputs:
     description: "Runs command on SET configuration (before the test)"
   RunOnSuccess:
     description: "Runs command after successful test"
-  RunOnFail:
-    description: "Runs command after test failure"
+  RunOnError:
+    description: "Runs command on error"
   RunOnExit:
     description: "Runs command on exit (after the test)"
+  RunOnFail:
+    description: "Runs command after test failure"
 # outputs:
 #  foo: # id of output
 #    description: 'Foo'
@@ -47,15 +49,16 @@ runs:
   env:
     BT_DAYS: ${{ inputs.BtDays }}
     BT_MONTHS: ${{ inputs.BtMonths }}
-    BT_YEARS: ${{ inputs.BtYears }}
     BT_PERIOD: ${{ inputs.TestPeriod }}
+    BT_YEARS: ${{ inputs.BtYears }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}
-    RUN_ON_START: ${{ inputs.RunOnStart }}
-    RUN_ON_SET: ${{ inputs.RunOnSet }}
-    RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
-    RUN_ON_FAIL: ${{ inputs.RunOnFail }}
+    RUN_ON_ERROR: ${{ inputs.RunOnError }}
     RUN_ON_EXIT: ${{ inputs.RunOnExit }}
+    RUN_ON_FAIL: ${{ inputs.RunOnFail }}
+    RUN_ON_SET: ${{ inputs.RunOnSet }}
+    RUN_ON_START: ${{ inputs.RunOnStart }}
+    RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
     SCRIPT: ${{ inputs.Script }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
 branding:
