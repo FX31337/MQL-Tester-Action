@@ -28,7 +28,29 @@ The name of the Expert Advisor to test.
 
 Timeframe to use for the test (default: _M30_).
 
-## Other Inputs
+## Run Inputs
+
+### `RunOnStart`
+
+Runs command on startup (before the test).
+
+### `RunOnSet`
+
+Runs command on SET configuration (e.g. `file_get URL`).
+
+### `RunOnSuccess`
+
+Runs command after successful test.
+
+### `RunOnFail`
+
+Runs command after test failure.
+
+### `RunOnExit`
+
+Runs command on exit (after the test).
+
+## Advanced Inputs
 
 ### `MtVersion`
 

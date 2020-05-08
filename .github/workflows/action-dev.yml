@@ -40,6 +40,7 @@ jobs:
           OptVerbose: true
           TestExpert: "TestEnvelopes.mq4"
           TestPeriod: M1
+          RunOnFail: "exit 0"
       - name: Run TestTimeframes
         uses: ea31337/mql-tester-action@dev
         with:

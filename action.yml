@@ -19,6 +19,16 @@ inputs:
   TestExpert:
     description: 'The name of the EA to test'
     # required: true
+  RunOnStart:
+    description: "Runs command on startup (before the test)"
+  RunOnSet:
+    description: "Runs command on SET configuration (before the test)"
+  RunOnSuccess:
+    description: "Runs command after successful test"
+  RunOnFail:
+    description: "Runs command after test failure"
+  RunOnExit:
+    description: "Runs command on exit (after the test)"
 # outputs:
 #  foo: # id of output
 #    description: 'Foo'
@@ -29,6 +39,11 @@ runs:
     BT_PERIOD: ${{ inputs.TestPeriod }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}
+    RUN_ON_START: ${{ inputs.RunOnStart }}
+    RUN_ON_SET: ${{ inputs.RunOnSet }}
+    RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
+    RUN_ON_FAIL: ${{ inputs.RunOnFail }}
+    RUN_ON_EXIT: ${{ inputs.RunOnExit }}
     SCRIPT: ${{ inputs.Script }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
 branding:
