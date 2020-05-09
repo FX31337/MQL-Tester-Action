@@ -38,6 +38,8 @@ inputs:
     description: 'Enables verbose mode'
   Script:
     description: 'The name of the script to run'
+  SetFile:
+    description: 'Specifies SET file to use'
   TestPeriod:
     description: 'Timeframe to use for the test'
     default: M30
@@ -88,6 +90,7 @@ runs:
     RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
     RUN_ON_WARN: ${{ inputs.RunOnWarning }}
     SCRIPT: ${{ inputs.Script }}
+    SETFILE: ${{ inputs.SetFile }}
     SET_PARAMS: ${{ inputs.SetParams }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
     WORKDIR: "/github/workspace"

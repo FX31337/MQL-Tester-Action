@@ -52,6 +52,10 @@ Specifies range of months in each year to test (default: 1).
 
 Specifies year or range of years to test (default: 2019).
 
+### `SetFile` (string)
+
+Specifies SET file to use for the test.
+
 ### `TestPeriod` (string)
 
 Timeframe to use for the test (default: _M30_).
@@ -72,9 +76,15 @@ Values:
 - 1 - Control points
 - 2 - Open prices only
 
+<!--
+### `EaOpts` (string)
+
+Specifies EA common/limit test parameters in a sequence of comma-separated values (e.g. _genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00_).
+-->
+
 ### `SetParams` (string)
 
-Specifies parameters to optimize in SET file (`SetFile`), separated by commas.
+Specifies parameters to optimize in SET file (`SetFile`) in a sequence of comma-separated values.
 
 ## Run Inputs
 
