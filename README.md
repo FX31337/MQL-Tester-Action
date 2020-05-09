@@ -24,27 +24,31 @@ The name of the Expert Advisor to test.
 
 ## Backtest Inputs
 
-### `BtDeposit`
+### `BtDeposit` (int)
 
 Deposit amount to use (default: _10000_).
 
-### `BtCurrency`
+### `BtDigits` (int)
+
+Specifies number of digits after decimal point for the current symbol prices (default: 5).
+
+### `BtCurrency` (string)
 
 Base currency to use (default: _USD_).
 
-### `BtDays`
+### `BtDays` (int/string)
 
 Specifies range of days in each month to test (default: 1-31).
 
-### `BtMonths`
+### `BtMonths` (int/string)
 
 Specifies range of months in each year to test (default: 1).
 
-### `BtYears`
+### `BtYears` (int/string)
 
 Specifies year or range of years to test (default: 2019).
 
-### `TestPeriod`
+### `TestPeriod` (string)
 
 Timeframe to use for the test (default: _M30_).
 
