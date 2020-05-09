@@ -50,7 +50,11 @@ Timeframe to use for the test (default: _M30_).
 
 ## Optimization Inputs
 
-### `SetParams`
+### `OptOptimize` (bool)
+
+Runs test in optimization mode.
+
+### `SetParams` (string)
 
 Specifies parameters to optimize in SET file (`SetFile`), separated by commas.
 

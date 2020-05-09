@@ -22,6 +22,8 @@ inputs:
   MtVersion:
     description: 'Version of the platform to install'
     default: '4.0.0.1260'
+  OptOptimize:
+    description: 'Runs test in optimization mode'
   OptTrace:
     description: 'Enables trace mode (debug)'
   OptVerbose:
@@ -64,6 +66,7 @@ runs:
     BT_MONTHS: ${{ inputs.BtMonths }}
     BT_PERIOD: ${{ inputs.TestPeriod }}
     BT_YEARS: ${{ inputs.BtYears }}
+    OPT_OPTIMIZATION: ${{ inputs.OptOptimize }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}
     RUN_ON_ERROR: ${{ inputs.RunOnError }}
