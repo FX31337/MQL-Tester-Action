@@ -48,6 +48,12 @@ Specifies year or range of years to test (default: 2019).
 
 Timeframe to use for the test (default: _M30_).
 
+## Optimization Inputs
+
+### `SetParams`
+
+Specifies parameters to optimize in SET file (`SetFile`), separated by commas.
+
 ## Run Inputs
 
 ### `RunOnStart`

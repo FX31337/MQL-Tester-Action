@@ -34,6 +34,8 @@ inputs:
   TestExpert:
     description: 'The name of the EA to test'
     # required: true
+  SetParams:
+    description: 'Specifies parameters to optimize'
   RunOnStart:
     description: "Runs command on startup (before the test)"
   RunOnSet:
@@ -72,6 +74,7 @@ runs:
     RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
     RUN_ON_WARN: ${{ inputs.RunOnWarning }}
     SCRIPT: ${{ inputs.Script }}
+    SET_PARAMS: ${{ inputs.SetParams }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
     WORKDIR: "/github/workspace"
 branding:
