@@ -62,6 +62,16 @@ Timeframe to use for the test (default: _M30_).
 
 Runs test in optimization mode.
 
+### `BtTestModel` (int)
+
+Specifies type of backtest data being tested.
+
+Values:
+
+- 0 (default) - Every tick
+- 1 - Control points
+- 2 - Open prices only
+
 ### `SetParams` (string)
 
 Specifies parameters to optimize in SET file (`SetFile`), separated by commas.

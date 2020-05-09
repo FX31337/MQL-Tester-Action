@@ -15,6 +15,9 @@ inputs:
     default: 5
   BtSpread:
     description: 'Specifies spread to use in points'
+  BtTestModel:
+    description: 'Specifies type of backtest data being tested'
+    default: 0
   BtDays:
     description: 'Specifies range of days in each month to test'
     default: '1-31'
@@ -72,6 +75,7 @@ runs:
     BT_MONTHS: ${{ inputs.BtMonths }}
     BT_PERIOD: ${{ inputs.TestPeriod }}
     BT_SPREAD: ${{ inputs.BtSpread }}
+    BT_TESTMODEL: ${{ inputs.BtTestModel }}
     BT_YEARS: ${{ inputs.BtYears }}
     OPT_OPTIMIZATION: ${{ inputs.OptOptimize }}
     OPT_TRACE: ${{ inputs.OptTrace }}
