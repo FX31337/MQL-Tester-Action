@@ -64,7 +64,7 @@ Runs command after successful test.
 
 ### `RunOnError`
 
-Runs command on error.
+Runs command on test error (including warnings).
 
 ### `RunOnExit`
 
@@ -73,6 +73,10 @@ Runs command on exit (after the test).
 ### `RunOnFail`
 
 Runs command after test failure.
+
+### `RunOnWarning`
+
+Runs command on test warnings (excluding errors).
 
 ## Advanced Inputs
 

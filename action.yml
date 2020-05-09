@@ -41,11 +41,14 @@ inputs:
   RunOnSuccess:
     description: "Runs command after successful test"
   RunOnError:
-    description: "Runs command on error"
+    description: "Runs command on test errors (including warnings)"
   RunOnExit:
     description: "Runs command on exit (after the test)"
   RunOnFail:
     description: "Runs command after test failure"
+  RunOnWarning:
+    description: "Runs command on test warnings (excluding errors)"
+
 # outputs:
 #  foo: # id of output
 #    description: 'Foo'
@@ -67,6 +70,7 @@ runs:
     RUN_ON_SET: ${{ inputs.RunOnSet }}
     RUN_ON_START: ${{ inputs.RunOnStart }}
     RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
+    RUN_ON_WARN: ${{ inputs.RunOnWarning }}
     SCRIPT: ${{ inputs.Script }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
     WORKDIR: "/github/workspace"
