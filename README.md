@@ -24,6 +24,10 @@ The name of the Expert Advisor to test.
 
 ## Backtest Inputs
 
+### `BtCurrency` (string)
+
+Base currency to use (default: _USD_).
+
 ### `BtDeposit` (int)
 
 Deposit amount to use (default: _10000_).
@@ -32,9 +36,9 @@ Deposit amount to use (default: _10000_).
 
 Specifies number of digits after decimal point for the current symbol prices (default: 5).
 
-### `BtCurrency` (string)
+### `BtSpread` (int)
 
-Base currency to use (default: _USD_).
+Specifies spread to use in points (e.g. 10).
 
 ### `BtDays` (int/string)
 
