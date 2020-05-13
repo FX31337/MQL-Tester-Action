@@ -60,6 +60,10 @@ Specifies SET file to use for the test.
 
 Timeframe to use for the test (default: _M30_).
 
+### `TestReportName` (string)
+
+Specifies the name of the test report file (default: _tester/Report_).
+
 ## Optimization Inputs
 
 ### `OptOptimize` (bool)

@@ -40,14 +40,17 @@ inputs:
     description: 'The name of the script to run'
   SetFile:
     description: 'Specifies SET file to use'
+  SetParams:
+    description: 'Specifies parameters to optimize'
   TestPeriod:
     description: 'Timeframe to use for the test'
     default: M30
+  TestReportName:
+    description: 'Specifies the name of the test report file'
+    default: 'tester/Report'
   TestExpert:
     description: 'The name of the EA to test'
     # required: true
-  SetParams:
-    description: 'Specifies parameters to optimize'
   RunOnStart:
     description: "Runs command on startup (before the test)"
   RunOnSet:
@@ -93,6 +96,7 @@ runs:
     SETFILE: ${{ inputs.SetFile }}
     SET_PARAMS: ${{ inputs.SetParams }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
+    TEST_REPORT_NAME: ${{ inputs.TestReportName }}
     WORKDIR: "/github/workspace"
 branding:
   icon: 'bar-chart'
