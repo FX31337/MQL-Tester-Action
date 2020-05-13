@@ -51,6 +51,8 @@ inputs:
   TestExpert:
     description: 'The name of the EA to test'
     # required: true
+  TestLimitOpts:
+    description: 'Specifies EA limit test parameters'
   RunOnStart:
     description: "Runs command on startup (before the test)"
   RunOnSet:
@@ -82,6 +84,7 @@ runs:
     BT_SPREAD: ${{ inputs.BtSpread }}
     BT_TESTMODEL: ${{ inputs.BtTestModel }}
     BT_YEARS: ${{ inputs.BtYears }}
+    EA_OPTS: ${{ inputs.TestLimitOpts }}
     OPT_OPTIMIZATION: ${{ inputs.OptOptimize }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}

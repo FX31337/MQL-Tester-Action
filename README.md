@@ -80,6 +80,10 @@ Values:
 - 1 - Control points
 - 2 - Open prices only
 
+### `TestLimitOpts` (string)
+
+Specifies EA limit test parameters in a sequence of comma-separated values (e.g. _genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00_).
+
 <!--
 ### `EaOpts` (string)
 
