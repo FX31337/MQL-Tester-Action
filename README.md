@@ -171,8 +171,8 @@ with:
 [tg-chat-image]: https://img.shields.io/badge/Telegram-chat-0088CC.svg?logo=telegram
 [tg-chat-link]: https://t.me/EA31337
 <!-- GitHub Actions build links -->
-[gha-link-action-master]: https://github.com/EA31337/MQL-Tester-Action/actions?query=workflow%3AAction@master+branch%3Amaster
-[gha-image-action-master]: https://github.com/EA31337/MQL-Tester-Action/workflows/Action@master/badge.svg
+[gha-link-action-master]: https://github.com/EA31337/MQL-Tester-Action/actions?query=workflow%3AAction+branch%3Amaster
+[gha-image-action-master]: https://github.com/EA31337/MQL-Tester-Action/workflows/Action/badge.svg
 [gha-link-docker-master]: https://github.com/EA31337/MQL-Tester-Action/actions?query=workflow%3ADocker+branch%3Amaster
 [gha-image-docker-master]: https://github.com/EA31337/MQL-Tester-Action/workflows/Docker/badge.svg
 [gha-link-lint-master]: https://github.com/EA31337/MQL-Tester-Action/actions?query=workflow%3ALint+branch%3Amaster
