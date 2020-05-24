@@ -5,6 +5,13 @@ on:
   - pull_request
   - push
 jobs:
+  Dockerfile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: brpaz/hadolint-action@master
+        with:
+          dockerfile: Dockerfile
   ShellCheck:
     runs-on: ubuntu-latest
     steps:
