@@ -1,5 +1,4 @@
 FROM ea31337/ea-tester:dev
-MAINTAINER kenorb
 
 RUN set
 
