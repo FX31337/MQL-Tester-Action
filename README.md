@@ -126,9 +126,13 @@ Runs command on test warnings (excluding errors).
 
 ## Advanced Inputs
 
+### `MtDest`
+
+Destination path to install MetaTrader platform. Default is the working directory (e.g. `/github/workspace`).
+
 ### `MtVersion`
 
-Version of the MetaTrader platform to install (default: _4.0.0.1260_).
+Version of the MetaTrader platform to install. Default: _4.0.0.1260_.
 
 ### `OptTrace`
 

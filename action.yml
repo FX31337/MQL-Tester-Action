@@ -27,6 +27,9 @@ inputs:
   BtYears:
     description: 'Specifies year or range of years to test'
     default: '2018'
+  MtDest:
+    description: 'Destination path to install platform'
+    default: '${{ github.workspace }}'
   MtVersion:
     description: 'Version of the platform to install'
     default: '4.0.0.1260'

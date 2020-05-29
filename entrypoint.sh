@@ -12,7 +12,7 @@ set -e
 source /opt/scripts/.funcs.cmds.inc.sh
 
 # Install platform.
-install_mt "$INPUT_MTVERSION"
+install_mt "$INPUT_MTVERSION" "$INPUT_MTDEST"
 
 # Run backtest.
 run_backtest -v
