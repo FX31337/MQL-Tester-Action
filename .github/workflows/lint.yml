@@ -12,6 +12,15 @@ jobs:
       - uses: brpaz/hadolint-action@master
         with:
           dockerfile: Dockerfile
+  Markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: .
+          config_file: ".markdownlint.yml"
   ShellCheck:
     runs-on: ubuntu-latest
     steps:

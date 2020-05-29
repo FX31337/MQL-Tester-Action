@@ -1,14 +1,14 @@
+# MQL Tester 🐳 Action
+
 <!-- markdownlint-configure-file { "MD013": { "line_length": 120 } } -->
-<!-- [![Release][github-release-image]][github-release-link] -->
+[![Release][github-release-image]][github-release-link]
 <!-- [![Docker image][docker-build-image]][docker-build-link] -->
 [![Status][gha-image-action-master]][gha-link-action-master]
 [![Status][gha-image-docker-master]][gha-link-docker-master]
 [![Status][gha-image-lint-master]][gha-link-lint-master]
-[![][tg-channel-image]][tg-channel-link]
-[![][tg-chat-image]][tg-chat-link]
+[![Telegram Channel][tg-channel-image]][tg-channel-link]
+[![Telegram Chat][tg-chat-image]][tg-chat-link]
 [![Edit][gitpod-image]][gitpod-link]
-
-# MQL Tester 🐳 Action
 
 This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scripts).
 
@@ -26,11 +26,11 @@ The name of the Expert Advisor to test.
 
 ### `BtCurrency` (string)
 
-Base currency to use (default: _USD_).
+Base currency to use (default: *USD*).
 
 ### `BtDeposit` (int)
 
-Deposit amount to use (default: _10000_).
+Deposit amount to use (default: *10000*).
 
 ### `BtDigits` (int)
 
@@ -58,11 +58,11 @@ Specifies SET file to use for the test.
 
 ### `TestPeriod` (string)
 
-Timeframe to use for the test (default: _M30_).
+Timeframe to use for the test (default: *M30*).
 
 ### `TestReportName` (string)
 
-Specifies the name of the test report file (default: _tester/Report_).
+Specifies the name of the test report file (default: *tester/Report*).
 
 ## Optimization Inputs
 
@@ -82,13 +82,7 @@ Values:
 
 ### `TestLimitOpts` (string)
 
-Specifies EA limit test parameters in a sequence of comma-separated values (e.g. _genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00_).
-
-<!--
-### `EaOpts` (string)
-
-Specifies EA common/limit test parameters in a sequence of comma-separated values (e.g. _genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00_).
--->
+Specifies EA limit test parameters in a sequence of comma-separated values (e.g. *genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00*).
 
 ### `SetParams` (string)
 
@@ -132,7 +126,7 @@ Destination path to install MetaTrader platform. Default is the working director
 
 ### `MtVersion`
 
-Version of the MetaTrader platform to install. Default: _4.0.0.1260_.
+Version of the MetaTrader platform to install. Default: *4.0.0.1260*.
 
 ### `OptTrace`
 
@@ -153,7 +147,7 @@ Foo bar.
 ## Example usage
 
 ```yaml
-uses: ea31337/mql-tester-action@master
+uses: fx31337/mql-tester-action@master
 with:
   TestExpert: 'MACD'
 ```
@@ -169,18 +163,18 @@ with:
 [github-release-link]: https://github.com/FX31337/MQL-Tester-Action/releases
 [docker-build-image]: https://images.microbadger.com/badges/image/ea31337/mql-tester-action-action.svg
 [docker-build-link]: https://microbadger.com/images/ea31337/mql-tester-action-action
-<!-- Telegram links -->
+
 [tg-channel-image]: https://img.shields.io/badge/Telegram-news-0088CC.svg?logo=telegram
 [tg-channel-link]: https://t.me/EA31337_News
 [tg-chat-image]: https://img.shields.io/badge/Telegram-chat-0088CC.svg?logo=telegram
 [tg-chat-link]: https://t.me/EA31337
-<!-- GitHub Actions build links -->
+
 [gha-link-action-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3AAction+branch%3Amaster
 [gha-image-action-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Action/badge.svg
 [gha-link-docker-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3ADocker+branch%3Amaster
 [gha-image-docker-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Docker/badge.svg
 [gha-link-lint-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3ALint+branch%3Amaster
 [gha-image-lint-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Lint/badge.svg
-<!-- Gitpod links -->
+
 [gitpod-image]: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
 [gitpod-link]: https://gitpod.io/#https://github.com/FX31337/MQL-Tester-Action
