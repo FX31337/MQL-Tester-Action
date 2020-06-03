@@ -5,7 +5,6 @@
 set -e
 [ -n "$INPUT_OPTVERBOSE" ] && echo "Loading ${BASH_SOURCE[0]}... " >&2
 [ -n "$INPUT_OPTVERBOSE" ] && id && set
-[ -n "$INPUT_OPTVERBOSE" ] && tree -sup /github /home
 
 # Load shell functions.
 # shellcheck disable=SC1091
