@@ -33,6 +33,10 @@ inputs:
   MtVersion:
     description: 'Version of the platform to install'
     default: '4.0.0.1260'
+  OptFormatBrief:
+    description: 'Converts report to brief format'
+  OptFormatJson:
+    description: 'Converts report to JSON format'
   OptOptimize:
     description: 'Runs test in optimization mode'
   OptTrace:
@@ -88,6 +92,8 @@ runs:
     BT_TESTMODEL: ${{ inputs.BtTestModel }}
     BT_YEARS: ${{ inputs.BtYears }}
     EA_OPTS: ${{ inputs.TestLimitOpts }}
+    OPT_FORMAT_BRIEF: ${{ inputs.OptFormatBrief }}
+    OPT_FORMAT_JSON: ${{ inputs.OptFormatJson }}
     OPT_OPTIMIZATION: ${{ inputs.OptOptimize }}
     OPT_TRACE: ${{ inputs.OptTrace }}
     OPT_VERBOSE: ${{ inputs.OptVerbose }}

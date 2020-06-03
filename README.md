@@ -120,6 +120,16 @@ Runs command after test failure.
 
 Runs command on test warnings (excluding errors).
 
+### Result Inputs
+
+#### `OptFormatBrief` (bool)
+
+Converts test report file to brief text format. Default: *false*.
+
+#### `OptFormatJson` (bool)
+
+Converts test report file to JSON formatted file. Default: *false*.
+
 ### Advanced Inputs
 
 #### `MtDest` (string)
