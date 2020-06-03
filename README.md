@@ -12,65 +12,67 @@
 
 This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scripts).
 
-## Main Inputs
+## Inputs
 
-### `Script`
+### Main Inputs
+
+#### `Script`
 
 The name of the script to run.
 
-### `TestExpert`
+#### `TestExpert`
 
 The name of the Expert Advisor to test.
 
-## Backtest Inputs
+### Backtest Inputs
 
-### `BtCurrency` (string)
+#### `BtCurrency` (string)
 
 Base currency to use (default: *USD*).
 
-### `BtDeposit` (int)
+#### `BtDeposit` (int)
 
 Deposit amount to use (default: *10000*).
 
-### `BtDigits` (int)
+#### `BtDigits` (int)
 
 Specifies number of digits after decimal point for the current symbol prices (default: 5).
 
-### `BtSpread` (int)
+#### `BtSpread` (int)
 
 Specifies spread to use in points (e.g. 10).
 
-### `BtDays` (int/string)
+#### `BtDays` (int/string)
 
 Specifies range of days in each month to test (default: 1-31).
 
-### `BtMonths` (int/string)
+#### `BtMonths` (int/string)
 
 Specifies range of months in each year to test (default: 1).
 
-### `BtYears` (int/string)
+#### `BtYears` (int/string)
 
 Specifies year or range of years to test (default: 2019).
 
-### `SetFile` (string)
+#### `SetFile` (string)
 
 Specifies SET file to use for the test.
 
-### `TestPeriod` (string)
+#### `TestPeriod` (string)
 
 Timeframe to use for the test (default: *M30*).
 
-### `TestReportName` (string)
+#### `TestReportName` (string)
 
 Specifies the name of the test report file (default: *tester/Report*).
 
-## Optimization Inputs
+### Optimization Inputs
 
-### `OptOptimize` (bool)
+#### `OptOptimize` (bool)
 
 Runs test in optimization mode.
 
-### `BtTestModel` (int)
+#### `BtTestModel` (int)
 
 Specifies type of backtest data being tested.
 
@@ -80,61 +82,61 @@ Values:
 - 1 - Control points
 - 2 - Open prices only
 
-### `TestLimitOpts` (string)
+#### `TestLimitOpts` (string)
 
 Specifies EA limit test parameters in a sequence of comma-separated values (e.g. *genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00*).
 
-### `SetParams` (string)
+#### `SetParams` (string)
 
 Specifies parameters to optimize in SET file (`SetFile`) in a sequence of comma-separated values.
 
-## Run Inputs
+### Run Inputs
 
-### `RunOnStart`
+#### `RunOnStart` (string)
 
 Runs command on startup (before the test).
 
-### `RunOnSet`
+#### `RunOnSet` (string)
 
 Runs command on SET configuration (e.g. `file_get URL`).
 
-### `RunOnSuccess`
+#### `RunOnSuccess` (string)
 
 Runs command after successful test.
 
-### `RunOnError`
+#### `RunOnError` (string)
 
 Runs command on test error (including warnings).
 
-### `RunOnExit`
+#### `RunOnExit` (string)
 
 Runs command on exit (after the test).
 
-### `RunOnFail`
+#### `RunOnFail` (string)
 
 Runs command after test failure.
 
-### `RunOnWarning`
+#### `RunOnWarning` (string)
 
 Runs command on test warnings (excluding errors).
 
-## Advanced Inputs
+### Advanced Inputs
 
-### `MtDest`
+#### `MtDest` (string)
 
 Destination path to install MetaTrader platform. Default is the working directory (e.g. `/github/workspace`).
 
-### `MtVersion`
+#### `MtVersion` (string)
 
 Version of the MetaTrader platform to install. Default: *4.0.0.1260*.
 
-### `OptTrace`
+#### `OptTrace` (bool)
 
-Enables trace mode. It provides extensive debugging messages.
+Enables trace mode. It provides extensive debugging messages. Default: *false*.
 
-### `OptVerbose`
+#### `OptVerbose` (bool)
 
-Enables verbose mode. It provides more detailed messages.
+Enables verbose mode. It provides more detailed messages. Default: *false*.
 
 <!--
 ## Outputs
