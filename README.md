@@ -41,6 +41,7 @@ uses: fx31337/mql-tester-action@master
 ```yaml
 uses: fx31337/mql-tester-action@master
 with:
+    TestExpert: Dummy
     BtPair: EURUSD
     BtMonths: 1-2
     BtYears: 2020
