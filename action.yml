@@ -13,6 +13,9 @@ inputs:
   BtDigits:
     description: 'Specifies number of digits after decimal point'
     default: 5
+  BtPair:
+    description: 'Symbol pair to use'
+    default: 'EURUSD'
   BtSpread:
     description: 'Specifies spread to use in points'
   BtTestModel:
@@ -89,6 +92,7 @@ runs:
     BT_MONTHS: ${{ inputs.BtMonths }}
     BT_PERIOD: ${{ inputs.TestPeriod }}
     BT_SPREAD: ${{ inputs.BtSpread }}
+    BT_SYMBOL: ${{ inputs.BtPair }}
     BT_TESTMODEL: ${{ inputs.BtTestModel }}
     BT_YEARS: ${{ inputs.BtYears }}
     EA_OPTS: ${{ inputs.TestLimitOpts }}

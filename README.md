@@ -41,11 +41,10 @@ uses: fx31337/mql-tester-action@master
 ```yaml
 uses: fx31337/mql-tester-action@master
 with:
-    Pairs: 'EURUSD'
-    Years: 2020
-    Months: 1-2
+    BtPair: EURUSD
+    BtMonths: 1-2
+    BtYears: 2020
 ```
-
 
 ## Inputs
 
@@ -61,13 +60,17 @@ The name of the Expert Advisor to test.
 
 ### Backtest Inputs
 
+#### `BtPair` (string)
+
+Symbol pair to use. Default: *EURUSD*.
+
 #### `BtCurrency` (string)
 
-Base currency to use (default: *USD*).
+Base currency to use. Default: *USD*.
 
 #### `BtDeposit` (int)
 
-Deposit amount to use (default: *10000*).
+Deposit amount to use. Default: *10000*.
 
 #### `BtDigits` (int)
 
