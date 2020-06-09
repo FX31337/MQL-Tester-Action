@@ -12,6 +12,41 @@
 
 This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scripts).
 
+## Usage
+
+For full documentation, please read: [GitHub Actions Documentation](https://help.github.com/en/actions).
+
+### Latest release
+
+```yaml
+uses: fx31337/mql-tester-action@v1
+```
+
+### Specific release
+
+```yaml
+uses: fx31337/mql-tester-action@v1.0.0
+```
+
+Note: Check _Releases_ for more details.
+
+### Latest development version
+
+```yaml
+uses: fx31337/mql-tester-action@master
+```
+
+### Overriding default inputs
+
+```yaml
+uses: fx31337/mql-tester-action@master
+with:
+    Pairs: 'EURUSD'
+    Years: 2020
+    Months: 1-2
+```
+
+
 ## Inputs
 
 ### Main Inputs
@@ -155,14 +190,6 @@ Enables verbose mode. It provides more detailed messages. Default: *false*.
 
 Foo bar.
 -->
-
-## Example usage
-
-```yaml
-uses: fx31337/mql-tester-action@master
-with:
-  TestExpert: 'MACD'
-```
 
 ### Support
 

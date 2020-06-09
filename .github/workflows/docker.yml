@@ -4,10 +4,10 @@ name: Docker
 on:
   pull_request:
     paths-ignore:
-      - '*.md'
+      - '**/*.md'
   push:
     paths-ignore:
-      - '*.md'
+      - '**/*.md'
 
 jobs:
   Build-Dockerfile:
