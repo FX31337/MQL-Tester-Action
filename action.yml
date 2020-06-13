@@ -65,6 +65,7 @@ inputs:
     description: 'Specifies EA limit test parameters'
   RunOnStart:
     description: "Runs command on startup (before the test)"
+    default: clean_sources
   RunOnSet:
     description: "Runs command on SET configuration (before the test)"
   RunOnSuccess:

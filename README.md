@@ -135,6 +135,8 @@ Specifies parameters to optimize in SET file (`SetFile`) in a sequence of comma-
 
 Runs command on startup (before the test).
 
+Default: *clean_sources* (to remove source code files from the platform directory).
+
 #### `RunOnSet` (string)
 
 Runs command on SET configuration (e.g. `file_get URL`).
