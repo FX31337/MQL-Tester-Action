@@ -29,7 +29,7 @@ inputs:
     default: '1'
   BtYears:
     description: 'Specifies year or range of years to test'
-    default: '2018'
+    default: '2019'
   MtDest:
     description: 'Destination path to install platform'
     default: '${{ github.workspace }}'
