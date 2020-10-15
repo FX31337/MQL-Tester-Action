@@ -12,7 +12,7 @@ inputs:
     default: 10000
   BtDest:
     description: 'Specifies directory to copy the results'
-    default: '/github/workspace'
+    default: '${{ github.workspace }}'
   BtDigits:
     description: 'Specifies number of digits after decimal point'
     default: 5
@@ -118,7 +118,7 @@ runs:
     SET_PARAMS: ${{ inputs.SetParams }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
     TEST_REPORT_NAME: ${{ inputs.TestReportName }}
-    WORKDIR: "/github/workspace"
+    WORKDIR: /github/workspace
 branding:
   icon: 'bar-chart'
   color: 'green'

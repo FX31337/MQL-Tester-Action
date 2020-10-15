@@ -107,7 +107,7 @@ Timeframe to use for the test (default: *M30*).
 
 Specifies directory to copy the results.
 
-Default: */github/workspace*.
+Default: */github/workspace* (indicated by github.workspace variable).
 
 #### `TestReportName` (string)
 
