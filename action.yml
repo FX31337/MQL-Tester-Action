@@ -10,6 +10,9 @@ inputs:
   BtDeposit:
     description: 'Deposit amount to use'
     default: 10000
+  BtDest:
+    description: 'Specifies directory to copy the results'
+    default: '/github/workspace'
   BtDigits:
     description: 'Specifies number of digits after decimal point'
     default: 5
@@ -89,6 +92,7 @@ runs:
     BT_CURRENCY: ${{ inputs.BtCurrency }}
     BT_DAYS: ${{ inputs.BtDays }}
     BT_DEPOSIT: ${{ inputs.BtDeposit }}
+    BT_DEST: ${{ inputs.BtDest }}
     BT_DIGITS: ${{ inputs.BtDigits }}
     BT_MONTHS: ${{ inputs.BtMonths }}
     BT_PERIOD: ${{ inputs.TestPeriod }}

@@ -101,9 +101,19 @@ Specifies SET file to use for the test.
 
 Timeframe to use for the test (default: *M30*).
 
+### Test Results
+
+#### `BtDest` (string)
+
+Specifies directory to copy the results.
+
+Default: */github/workspace*.
+
 #### `TestReportName` (string)
 
-Specifies the name of the test report file (default: *tester/Report*).
+Specifies the name of the test report file.
+
+Default: *tester/Report*.
 
 ### Optimization Inputs
 
