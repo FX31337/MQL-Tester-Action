@@ -189,7 +189,7 @@ Destination path to install MetaTrader platform. Default is the working director
 
 #### `MtVersion` (string)
 
-Version of the MetaTrader platform to install. Default: *4.0.0.1260*.
+Version of the MetaTrader platform to install. Default: *4.0.0.1320*.
 
 #### `OptTrace` (bool)
 
