@@ -97,6 +97,10 @@ Specifies year or range of years to test (default: 2019).
 
 Specifies SET file to use for the test.
 
+#### `SetOpts` (string)
+
+Specifies comma-separated custom params to set for EA (e.g. SomeOption=1,AnotherOption=0).
+
 #### `TestPeriod` (string)
 
 Timeframe to use for the test (default: *M30*).
