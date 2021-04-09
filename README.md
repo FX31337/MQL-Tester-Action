@@ -1,13 +1,13 @@
 # MQL Tester 🐳 Action
 
 <!-- markdownlint-configure-file { "MD013": { "line_length": 120 } } -->
-[![Release][github-release-image]][github-release-link]
+[![Tag][gh-tag-image]][gh-tag-link]
 <!-- [![Docker image][docker-build-image]][docker-build-link] -->
 [![Status][gha-image-action-master]][gha-link-action-master]
+[![Status][gha-image-check-master]][gha-link-check-master]
 [![Status][gha-image-docker-master]][gha-link-docker-master]
 [![Status][gha-image-lint-master]][gha-link-lint-master]
-[![Telegram Channel][tg-channel-image]][tg-channel-link]
-[![Telegram Chat][tg-chat-image]][tg-chat-link]
+[![Channel][tg-channel-image]][tg-channel-link]
 [![Edit][gitpod-image]][gitpod-link]
 
 This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scripts).
@@ -75,7 +75,8 @@ Deposit amount to use. Default: *10000*.
 
 #### `BtDigits` (int)
 
-Specifies number of digits after decimal point for the current symbol prices (default: 5).
+Specifies number of digits after decimal point
+for the current symbol prices (default: 5).
 
 #### `BtSpread` (int)
 
@@ -137,11 +138,13 @@ Values:
 
 #### `TestLimitOpts` (string)
 
-Specifies EA limit test parameters in a sequence of comma-separated values (e.g. *genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00*).
+Specifies EA limit test parameters
+in a sequence of comma-separated values (e.g. *genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00*).
 
 #### `SetParams` (string)
 
-Specifies parameters to optimize in SET file (`SetFile`) in a sequence of comma-separated values.
+Specifies parameters to optimize in SET file (`SetFile`)
+in a sequence of comma-separated values.
 
 ### Run Inputs
 
@@ -189,7 +192,8 @@ Converts test report file to JSON formatted file. Default: *false*.
 
 #### `MtDest` (string)
 
-Destination path to install MetaTrader platform. Default is the working directory (e.g. `/github/workspace`).
+Destination path to install MetaTrader platform.
+Default is the working directory (e.g. `/github/workspace`).
 
 #### `MtVersion` (string)
 
@@ -213,20 +217,19 @@ Foo bar.
 
 ### Support
 
-- For bugs/features, raise a [new issue at GitHub](https://github.com/FX31337/MQL-Tester-Action/issues).
-- Join our [Telegram group][tg-chat-link] and [channel][tg-channel-link] for help.
+- For bugs/features,
+  raise a [new issue at GitHub](https://github.com/FX31337/MQL-Tester-Action/issues).
 
 <!-- Named links -->
 
-[github-release-image]: https://img.shields.io/github/release/FX31337/MQL-Tester-Action.svg?logo=github
-[github-release-link]: https://github.com/FX31337/MQL-Tester-Action/releases
 [docker-build-image]: https://images.microbadger.com/badges/image/ea31337/mql-tester-action-action.svg
 [docker-build-link]: https://microbadger.com/images/ea31337/mql-tester-action-action
 
-[tg-channel-image]: https://img.shields.io/badge/Telegram-news-0088CC.svg?logo=telegram
-[tg-channel-link]: https://t.me/EA31337_News
-[tg-chat-image]: https://img.shields.io/badge/Telegram-chat-0088CC.svg?logo=telegram
-[tg-chat-link]: https://t.me/EA31337
+[gh-tag-image]: https://img.shields.io/github/tag/FX31337/MQL-Tester-Action.svg?logo=github
+[gh-tag-link]: https://github.com/FX31337/MQL-Tester-Action/tags
+
+[tg-channel-image]: https://img.shields.io/badge/Telegram-join-0088CC.svg?logo=telegram
+[tg-channel-link]: https://t.me/EA31337
 
 [gha-link-action-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3AAction+branch%3Amaster
 [gha-image-action-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Action/badge.svg
