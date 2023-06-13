@@ -8,7 +8,7 @@
 [![Status][gha-image-docker-master]][gha-link-docker-master]
 [![Status][gha-image-lint-master]][gha-link-lint-master]
 [![Channel][tg-channel-image]][tg-channel-link]
-[![Edit][gitpod-image]][gitpod-link]
+[![Edit][gh-edit-badge]][gh-edit-link]
 
 This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scripts).
 
@@ -225,6 +225,9 @@ Foo bar.
 [docker-build-image]: https://images.microbadger.com/badges/image/ea31337/mql-tester-action-action.svg
 [docker-build-link]: https://microbadger.com/images/ea31337/mql-tester-action-action
 
+[gh-edit-badge]: https://img.shields.io/badge/GitHub-edit-purple.svg?logo=github
+[gh-edit-link]: https://github.dev/FX31337/MQL-Tester-Action
+
 [gh-tag-image]: https://img.shields.io/github/tag/FX31337/MQL-Tester-Action.svg?logo=github
 [gh-tag-link]: https://github.com/FX31337/MQL-Tester-Action/tags
 
@@ -233,10 +236,12 @@ Foo bar.
 
 [gha-link-action-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3AAction+branch%3Amaster
 [gha-image-action-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Action/badge.svg
+
+[gha-link-check-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3ACheck+branch%3Amaster
+[gha-image-check-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Check/badge.svg
+
 [gha-link-docker-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3ADocker+branch%3Amaster
 [gha-image-docker-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Docker/badge.svg
+
 [gha-link-lint-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3ALint+branch%3Amaster
 [gha-image-lint-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Lint/badge.svg
-
-[gitpod-image]: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
-[gitpod-link]: https://gitpod.io/#https://github.com/FX31337/MQL-Tester-Action
