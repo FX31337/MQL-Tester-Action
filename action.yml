@@ -38,7 +38,7 @@ inputs:
     default: '${{ github.workspace }}'
   MtVersion:
     description: 'Version of the platform to install'
-    default: '4.0.0.1320'
+    default: '4.0.0.1359'
   OptFormatBrief:
     description: 'Converts report to brief format'
   OptFormatJson:
@@ -53,6 +53,8 @@ inputs:
     description: 'The name of the script to run'
   SetFile:
     description: 'Specifies SET file to use'
+  SetOpts:
+    description: 'Specifies comma-separated custom params to set for EA'
   SetParams:
     description: 'Specifies parameters to optimize'
   TestPeriod:
@@ -115,6 +117,7 @@ runs:
     RUN_ON_WARN: ${{ inputs.RunOnWarning }}
     SCRIPT: ${{ inputs.Script }}
     SETFILE: ${{ inputs.SetFile }}
+    SET_OPTS: ${{ inputs.SetOpts }}
     SET_PARAMS: ${{ inputs.SetParams }}
     TEST_EXPERT: ${{ inputs.TestExpert }}
     TEST_REPORT_NAME: ${{ inputs.TestReportName }}
