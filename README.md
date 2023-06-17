@@ -190,6 +190,10 @@ Converts test report file to JSON formatted file. Default: *false*.
 
 ### Advanced Inputs
 
+#### `GitHubApiToken` (string)
+
+Specifies GitHub Personal access token (PAT) to increase API limits.
+
 #### `MtDest` (string)
 
 Destination path to install MetaTrader platform.
