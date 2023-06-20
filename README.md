@@ -2,7 +2,6 @@
 
 <!-- markdownlint-configure-file { "MD013": { "line_length": 120 } } -->
 [![Tag][gh-tag-image]][gh-tag-link]
-<!-- [![Docker image][docker-build-image]][docker-build-link] -->
 [![Status][gha-image-action-master]][gha-link-action-master]
 [![Status][gha-image-check-master]][gha-link-check-master]
 [![Status][gha-image-docker-master]][gha-link-docker-master]
@@ -25,7 +24,7 @@ uses: fx31337/mql-tester-action@v1
 ### Specific release
 
 ```yaml
-uses: fx31337/mql-tester-action@v1.0.0
+uses: fx31337/mql-tester-action@v1.0.1
 ```
 
 Note: Check _Releases_ for more details.
@@ -44,7 +43,7 @@ with:
     TestExpert: Dummy
     BtPair: EURUSD
     BtMonths: 1-2
-    BtYears: 2020
+    BtYears: 2021
 ```
 
 ## Inputs
@@ -225,9 +224,6 @@ Foo bar.
   raise a [new issue at GitHub](https://github.com/FX31337/MQL-Tester-Action/issues).
 
 <!-- Named links -->
-
-[docker-build-image]: https://images.microbadger.com/badges/image/ea31337/mql-tester-action-action.svg
-[docker-build-link]: https://microbadger.com/images/ea31337/mql-tester-action-action
 
 [gh-edit-badge]: https://img.shields.io/badge/GitHub-edit-purple.svg?logo=github
 [gh-edit-link]: https://github.dev/FX31337/MQL-Tester-Action
