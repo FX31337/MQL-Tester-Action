@@ -1,4 +1,4 @@
-FROM ea31337/ea-tester:dev
+FROM ea31337/ea-tester:latest
 
 RUN set
 
