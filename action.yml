@@ -41,7 +41,7 @@ inputs:
     default: '${{ github.workspace }}'
   MtVersion:
     description: 'Version of the platform to install'
-    default: '4.0.0.1359'
+    default: '4.0.0.1382'
   OptFormatBrief:
     description: 'Converts report to brief format'
   OptFormatJson:
