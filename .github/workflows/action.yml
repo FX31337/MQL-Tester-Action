@@ -17,7 +17,7 @@ jobs:
       - name: Run PrintPaths
         uses: ./
         with:
-          OptTrace: true
+          OptTrace: ${{ runner.debug }}
           OptVerbose: true
           Script: "PrintPaths"
   Experts:
@@ -30,11 +30,13 @@ jobs:
       - name: Run TestBands
         uses: ./
         with:
+          OptTrace: ${{ runner.debug }}
           OptVerbose: true
           TestExpert: "TestBands.mq4"
       - name: Run TestEnvelopes
         uses: ./
         with:
+          OptTrace: ${{ runner.debug }}
           OptVerbose: true
           TestExpert: "TestEnvelopes.mq4"
           TestPeriod: M1
@@ -42,5 +44,6 @@ jobs:
       - name: Run TestTimeframes
         uses: ./
         with:
+          OptTrace: ${{ runner.debug }}
           OptVerbose: true
           TestExpert: "TestTimeframes.mq4"
