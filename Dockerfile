@@ -1,4 +1,4 @@
-FROM ea31337/ea-tester:v1.0.5
+FROM ea31337/ea-tester:dev
 
 RUN set
 
