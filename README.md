@@ -200,7 +200,7 @@ Default is the working directory (e.g. `/github/workspace`).
 
 #### `MtVersion` (string)
 
-Version of the MetaTrader platform to install. Default: *4.0.0.1382*.
+Version of the MetaTrader platform to install. Default: 4.
 
 #### `OptTrace` (bool)
 
