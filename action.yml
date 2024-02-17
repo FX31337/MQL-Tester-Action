@@ -95,6 +95,39 @@ name: EA Tester
 #    description: 'Foo'
 runs:
   steps:
+    - name: Creates playbook
+      uses: DamianReeves/write-file-action@v1.3
+      with:
+        path: ansible/run.yml
+        write-mode: overwrite
+        contents: |
+          ---
+          - name: Run test
+            hosts: all
+            tasks:
+              - name: Include main role
+                ansible.builtin.import_role:
+                  name: ea31337.mt_runner
+                vars:
+                  metatrader_version: ${{ inputs.MtVersion }}
+                  mt_runner_bt_mt5_config:
+                    Common:
+                      Login:
+                      Password:
+                      Server: MetaQuotes-Demo
+                    Tester:
+                      Deposit: 10000
+                      ExecutionMode: 0
+                      Expert: Advisors\Dummy.ex5
+                      FromDate: 2024.01.01
+                      Leverage: 1:500
+                      Login: 12345
+                      Model: 1
+                      Report: report.html
+                      ReplaceReport: 1
+                      ShutdownTerminal: 1
+                      Symbol: EURUSD
+                      ToDate: 2024.01.11
     - name: Runs playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
@@ -105,8 +138,9 @@ runs:
         directory: ansible
         options: |
           --connection local
+          --extra-vars hello=there
           --inventory localhost,
           --verbose
-        playbook: run-test.yml
+        playbook: run.yml
         requirements: requirements.yml
   using: composite
