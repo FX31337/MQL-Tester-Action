@@ -1,98 +1,101 @@
 # action.yml
 ---
-name: 'EA Tester'
-description: 'Runs MQL program'
-author: 'kenorb'
+author: kenorb
+branding:
+  icon: bar-chart
+  color: green
+description: Runs MQL program
 inputs:
   BtCurrency:
-    description: 'Base currency to use'
-    default: 'USD'
+    description: Base currency to use
+    default: USD
   BtDeposit:
-    description: 'Deposit amount to use'
+    description: Deposit amount to use
     default: 10000
   BtDest:
-    description: 'Specifies directory to copy the results'
-    default: '${{ github.workspace }}'
+    description: Specifies directory to copy the results
+    default: ${{ github.workspace }}
   BtDigits:
-    description: 'Specifies number of digits after decimal point'
+    description: Specifies number of digits after decimal point
     default: 5
   BtPair:
-    description: 'Symbol pair to use'
-    default: 'EURUSD'
+    description: Symbol pair to use
+    default: EURUSD
   BtSpread:
-    description: 'Specifies spread to use in points'
+    description: Specifies spread to use in points
   BtTestModel:
-    description: 'Specifies type of backtest data being tested'
+    description: Specifies type of backtest data being tested
     default: 0
   BtDays:
-    description: 'Specifies range of days in each month to test'
-    default: '1-31'
+    description: Specifies range of days in each month to test
+    default: 1-31
   BtMonths:
-    description: 'Specifies range of months in each year to test'
-    default: '1'
+    description: Specifies range of months in each year to test
+    default: 1
   BtYears:
-    description: 'Specifies year or range of years to test'
-    default: '2019'
+    description: Specifies year or range of years to test
+    default: 2019
   GitHubApiToken:
-    description: 'Specifies GitHub PAT to increase API limits.'
-    default: ''
+    description: Specifies GitHub PAT to increase API limits.
+    default:
   MtDest:
-    description: 'Destination path to install platform'
-    default: '${{ github.workspace }}'
+    description: Destination path to install platform
+    default: "${{ github.workspace }}"
   MtVersion:
-    description: 'Version of the platform to install'
+    description: Version of the platform to install
     default: 4
   OptFormatBrief:
-    description: 'Converts report to brief format'
+    description: Converts report to brief format
   OptFormatJson:
-    description: 'Converts report to JSON format'
+    description: Converts report to JSON format
   OptOptimize:
-    description: 'Runs test in optimization mode'
+    description: Runs test in optimization mode
   OptTrace:
-    description: 'Enables trace mode (debug)'
+    description: Enables trace mode (debug)
   OptVerbose:
-    description: 'Enables verbose mode'
+    description: Enables verbose mode
   Script:
-    description: 'The name of the script to run'
+    description: The name of the script to run
   SetFile:
-    description: 'Specifies SET file to use'
+    description: Specifies SET file to use
   SetOpts:
-    description: 'Specifies comma-separated custom params to set for EA'
+    description: Specifies comma-separated custom params to set for EA
   SetParams:
-    description: 'Specifies parameters to optimize'
+    description: Specifies parameters to optimize
   TestPeriod:
-    description: 'Timeframe to use for the test'
+    description: Timeframe to use for the test
     default: M30
   TestReportName:
-    description: 'Specifies the name of the test report file'
-    default: 'tester/Report'
+    description: Specifies the name of the test report file
+    default: tester/Report
   TestExpert:
-    description: 'The name of the EA to test'
+    description: The name of the EA to test
     # required: true
   TestLimitOpts:
-    description: 'Specifies EA limit test parameters'
+    description: Specifies EA limit test parameters
   RunOnStart:
-    description: "Runs command on startup (before the test)"
+    description: Runs command on startup (before the test)
     default: clean_sources
   RunOnSet:
-    description: "Runs command on SET configuration (before the test)"
+    description: Runs command on SET configuration (before the test)
   RunOnSuccess:
-    description: "Runs command after successful test"
+    description: Runs command after successful test
   RunOnError:
-    description: "Runs command on test errors (including warnings)"
+    description: Runs command on test errors (including warnings)
   RunOnExit:
-    description: "Runs command on exit (after the test)"
+    description: Runs command on exit (after the test)
   RunOnFail:
-    description: "Runs command after test failure"
+    description: Runs command after test failure
   RunOnWarning:
-    description: "Runs command on test warnings (excluding errors)"
+    description: Runs command on test warnings (excluding errors)
+name: EA Tester
 
 # outputs:
 #  foo: # id of output
 #    description: 'Foo'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: Dockerfile
   env:
     BT_CURRENCY: ${{ inputs.BtCurrency }}
     BT_DAYS: ${{ inputs.BtDays }}
@@ -126,6 +129,3 @@ runs:
     TEST_EXPERT: ${{ inputs.TestExpert }}
     TEST_REPORT_NAME: ${{ inputs.TestReportName }}
     WORKDIR: /github/workspace
-branding:
-  icon: 'bar-chart'
-  color: 'green'
