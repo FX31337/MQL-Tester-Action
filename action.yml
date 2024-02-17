@@ -94,38 +94,19 @@ name: EA Tester
 #  foo: # id of output
 #    description: 'Foo'
 runs:
-  using: docker
-  image: Dockerfile
-  env:
-    BT_CURRENCY: ${{ inputs.BtCurrency }}
-    BT_DAYS: ${{ inputs.BtDays }}
-    BT_DEPOSIT: ${{ inputs.BtDeposit }}
-    BT_DEST: ${{ inputs.BtDest }}
-    BT_DIGITS: ${{ inputs.BtDigits }}
-    BT_MONTHS: ${{ inputs.BtMonths }}
-    BT_PERIOD: ${{ inputs.TestPeriod }}
-    BT_SPREAD: ${{ inputs.BtSpread }}
-    BT_SYMBOL: ${{ inputs.BtPair }}
-    BT_TESTMODEL: ${{ inputs.BtTestModel }}
-    BT_YEARS: ${{ inputs.BtYears }}
-    GITHUB_API_TOKEN: ${{ inputs.GitHubApiToken }}
-    EA_OPTS: ${{ inputs.TestLimitOpts }}
-    OPT_FORMAT_BRIEF: ${{ inputs.OptFormatBrief }}
-    OPT_FORMAT_JSON: ${{ inputs.OptFormatJson }}
-    OPT_OPTIMIZATION: ${{ inputs.OptOptimize }}
-    OPT_TRACE: ${{ inputs.OptTrace }}
-    OPT_VERBOSE: ${{ inputs.OptVerbose }}
-    RUN_ON_ERROR: ${{ inputs.RunOnError }}
-    RUN_ON_EXIT: ${{ inputs.RunOnExit }}
-    RUN_ON_FAIL: ${{ inputs.RunOnFail }}
-    RUN_ON_SET: ${{ inputs.RunOnSet }}
-    RUN_ON_START: ${{ inputs.RunOnStart }}
-    RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
-    RUN_ON_WARN: ${{ inputs.RunOnWarning }}
-    SCRIPT: ${{ inputs.Script }}
-    SETFILE: ${{ inputs.SetFile }}
-    SET_OPTS: ${{ inputs.SetOpts }}
-    SET_PARAMS: ${{ inputs.SetParams }}
-    TEST_EXPERT: ${{ inputs.TestExpert }}
-    TEST_REPORT_NAME: ${{ inputs.TestReportName }}
-    WORKDIR: /github/workspace
+  steps:
+    - name: Runs playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        configuration: |
+          [defaults]
+          nocows = false
+          stdout_callback = yaml
+        directory: ansible
+        options: |
+          --connection local
+          --inventory localhost,
+          --verbose
+        playbook: run-test.yml
+        requirements: requirements.yml
+  using: composite
