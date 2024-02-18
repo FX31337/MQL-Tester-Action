@@ -21,6 +21,9 @@ jobs:
       - name: Run Libre (5)
         uses: ./
         with:
+          Login: ${{ secrets.MT5_LOGIN }}
+          Password: ${{ secrets.MT5_PASSWORD }}
+          Server: MetaQuotes-Demo
           TestExpert: EA31337-Libre-v1.013.ex5
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
