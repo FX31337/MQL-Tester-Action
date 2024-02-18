@@ -10,12 +10,23 @@ on:
       - '*.md'
 
 jobs:
-  ea:
-    name: Run EA
+  ea-mt4:
+    name: Run EA (MT4)
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Libre (4)
+        uses: ./
+        with:
+          TestExpert: EA31337-Libre-v1.013.ex4
+          TestFromDate: 2020.01.01
+          TestToDate: 2020.01.12
+          UrlExpert: >-
+            https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex4
+          Version: 4
+  ea-mt5:
+    name: Run EA (MT5)
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Run Libre (5)
@@ -30,12 +41,3 @@ jobs:
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
           Version: 5
-      - name: Run Libre (4)
-        uses: ./
-        with:
-          TestExpert: EA31337-Libre-v1.013.ex4
-          TestFromDate: 2020.01.01
-          TestToDate: 2020.01.12
-          UrlExpert: >-
-            https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex4
-          Version: 4
