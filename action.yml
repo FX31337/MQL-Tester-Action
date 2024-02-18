@@ -193,7 +193,7 @@ runs:
           [defaults]
           nocows = false
           stdout_callback = yaml
-        directory: ansible
+        directory: ${{ github.workspace }}/ansible
         options: |
           --connection local
           --inventory localhost,
