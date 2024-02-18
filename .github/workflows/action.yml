@@ -17,9 +17,7 @@ jobs:
       - name: Run PrintPaths
         uses: ./
         with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          Script: "PrintPaths"
+          Script: PrintPaths
   Experts:
     runs-on: ubuntu-latest
     strategy:
@@ -30,20 +28,13 @@ jobs:
       - name: Run TestBands
         uses: ./
         with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          TestExpert: "TestBands.mq4"
+          TestExpert: TestBands.mq4
       - name: Run TestEnvelopes
         uses: ./
         with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          TestExpert: "TestEnvelopes.mq4"
+          TestExpert: TestEnvelopes.mq4
           TestPeriod: M1
-          RunOnFail: "exit 0"
       - name: Run TestTimeframes
         uses: ./
         with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          TestExpert: "TestTimeframes.mq4"
+          TestExpert: TestTimeframes.mq4
