@@ -73,6 +73,9 @@ inputs:
   TestToDate:
     default:
     description: The date to finish testing (yyyy.mm.dd).
+  UrlExpert:
+    default: https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
+    description: URL of Expert Advisor to download.
   Version:
     default: 5
     description: Version of platform to use.
@@ -180,6 +183,9 @@ runs:
                       Symbol: ${{ inputs.TestSymbol }}
                       ToDate: ${{ inputs.TestToDate }}
                       Visual: 0
+                  mt_runner_get_url_list:
+                    - dest: "{{ mt_runner_mt_path }}/MQL${{ inputs.Version }}/Experts"
+                      url: "${{ inputs.UrlExpert }}"
     - name: Runs playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:

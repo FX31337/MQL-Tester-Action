@@ -10,31 +10,25 @@ on:
       - '*.md'
 
 jobs:
-  Scripts:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run PrintPaths
-        uses: ./
-        with:
-          Script: PrintPaths
-  Experts:
+  ea:
+    name: Run EA
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       max-parallel: 2
     steps:
       - uses: actions/checkout@v4
-      - name: Run TestBands
+      - name: Run Libre (5)
         uses: ./
         with:
-          TestExpert: TestBands.mq4
-      - name: Run TestEnvelopes
+          TestExpert: EA31337-Libre-v1.013.ex5
+          UrlExpert: >-
+            https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
+          Version: 5
+      - name: Run Libre (4)
         uses: ./
         with:
-          TestExpert: TestEnvelopes.mq4
-          TestPeriod: M1
-      - name: Run TestTimeframes
-        uses: ./
-        with:
-          TestExpert: TestTimeframes.mq4
+          TestExpert: EA31337-Libre-v1.013.ex4
+          UrlExpert: >-
+            https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex4
+          Version: 4
