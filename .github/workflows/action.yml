@@ -24,6 +24,7 @@ jobs:
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex4
           Version: 4
+    timeout-minutes: 20
   ea-mt5:
     name: Run EA (MT5)
     runs-on: ubuntu-latest
@@ -41,3 +42,4 @@ jobs:
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
           Version: 5
+    timeout-minutes: 20
