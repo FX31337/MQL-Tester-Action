@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: mxschmitt/action-tmate@v3
+        with:
+          detached: true
       - name: Run Libre (4)
         uses: ./
         with:
