@@ -1,131 +1,203 @@
 # action.yml
 ---
-name: 'EA Tester'
-description: 'Runs MQL program'
-author: 'kenorb'
+author: kenorb
+branding:
+  icon: bar-chart
+  color: green
+description: Runs MQL program
 inputs:
-  BtCurrency:
-    description: 'Base currency to use'
-    default: 'USD'
-  BtDeposit:
-    description: 'Deposit amount to use'
-    default: 10000
-  BtDest:
-    description: 'Specifies directory to copy the results'
-    default: '${{ github.workspace }}'
-  BtDigits:
-    description: 'Specifies number of digits after decimal point'
-    default: 5
-  BtPair:
-    description: 'Symbol pair to use'
-    default: 'EURUSD'
-  BtSpread:
-    description: 'Specifies spread to use in points'
-  BtTestModel:
-    description: 'Specifies type of backtest data being tested'
-    default: 0
-  BtDays:
-    description: 'Specifies range of days in each month to test'
-    default: '1-31'
-  BtMonths:
-    description: 'Specifies range of months in each year to test'
-    default: '1'
-  BtYears:
-    description: 'Specifies year or range of years to test'
-    default: '2019'
-  GitHubApiToken:
-    description: 'Specifies GitHub PAT to increase API limits.'
-    default: ''
-  MtDest:
-    description: 'Destination path to install platform'
-    default: '${{ github.workspace }}'
-  MtVersion:
-    description: 'Version of the platform to install'
-    default: '4.0.0.1382'
-  OptFormatBrief:
-    description: 'Converts report to brief format'
-  OptFormatJson:
-    description: 'Converts report to JSON format'
-  OptOptimize:
-    description: 'Runs test in optimization mode'
-  OptTrace:
-    description: 'Enables trace mode (debug)'
-  OptVerbose:
-    description: 'Enables verbose mode'
+  Currency:
+    default:
+    description: Deposit currency to use.
+  Expert:
+    default:
+    description: The name of the EA file to run.
+  Login:
+    default:
+    description: Account number.
+  Password:
+    default:
+    description: Password to the account.
+  Period:
+    default:
+    description: The default timeframe of the chart.
+  Server:
+    default:
+    description: Trade server.
   Script:
-    description: 'The name of the script to run'
-  SetFile:
-    description: 'Specifies SET file to use'
-  SetOpts:
-    description: 'Specifies comma-separated custom params to set for EA'
-  SetParams:
-    description: 'Specifies parameters to optimize'
-  TestPeriod:
-    description: 'Timeframe to use for the test'
-    default: M30
-  TestReportName:
-    description: 'Specifies the name of the test report file'
-    default: 'tester/Report'
+    default:
+    description: The name of the script to run.
+  TestDeposit:
+    description: Initial deposit to use for testing.
+    default: 10000
+  TestExecutionMode:
+    default: 0
+    description: Trading execution mode.
+  TestFromDate:
+    default:
+    description: The date to start testing (yyyy.mm.dd).
   TestExpert:
-    description: 'The name of the EA to test'
-    # required: true
-  TestLimitOpts:
-    description: 'Specifies EA limit test parameters'
-  RunOnStart:
-    description: "Runs command on startup (before the test)"
-    default: clean_sources
-  RunOnSet:
-    description: "Runs command on SET configuration (before the test)"
-  RunOnSuccess:
-    description: "Runs command after successful test"
-  RunOnError:
-    description: "Runs command on test errors (including warnings)"
-  RunOnExit:
-    description: "Runs command on exit (after the test)"
-  RunOnFail:
-    description: "Runs command after test failure"
-  RunOnWarning:
-    description: "Runs command on test warnings (excluding errors)"
+    default:
+    description: The name of the Expert Advisor file to test.
+  TestExpertParameters:
+    default:
+    description: The name of the SET file with EA parameters.
+  TestLeverage:
+    default:
+    description: Leverage to use for testing/optimization.
+  TestModel:
+    description: Specifies type of modelling to use.
+    default: 1
+  TestOptimization:
+    default: 0
+    description: Specifies testing mode.
+  TestOptimizationCriterion:
+    default:
+    description: Specifies optimization criterion.
+  TestPeriod:
+    description: Timeframe to use for the test.
+  TestReport:
+    default:
+    description: Specifies the name of the test report file
+  TestReplaceReport:
+    default:
+    description: Specifies whether to enable overwriting of the report file.
+  TestScriptParameters:
+    default:
+    description: The name of the SET file with script parameters.
+  TestSpread:
+    description: Specifies spread to use in points.
+  TestSymbol:
+    default: EURUSD
+    description: Symbol pair to test.
+  TestToDate:
+    default:
+    description: The date to finish testing (yyyy.mm.dd).
+  UrlExpert:
+    default: https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
+    description: URL of Expert Advisor to download.
+  Version:
+    default: 5
+    description: Version of platform to use.
+name: EA Tester
 
 # outputs:
 #  foo: # id of output
 #    description: 'Foo'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  env:
-    BT_CURRENCY: ${{ inputs.BtCurrency }}
-    BT_DAYS: ${{ inputs.BtDays }}
-    BT_DEPOSIT: ${{ inputs.BtDeposit }}
-    BT_DEST: ${{ inputs.BtDest }}
-    BT_DIGITS: ${{ inputs.BtDigits }}
-    BT_MONTHS: ${{ inputs.BtMonths }}
-    BT_PERIOD: ${{ inputs.TestPeriod }}
-    BT_SPREAD: ${{ inputs.BtSpread }}
-    BT_SYMBOL: ${{ inputs.BtPair }}
-    BT_TESTMODEL: ${{ inputs.BtTestModel }}
-    BT_YEARS: ${{ inputs.BtYears }}
-    GITHUB_API_TOKEN: ${{ inputs.GitHubApiToken }}
-    EA_OPTS: ${{ inputs.TestLimitOpts }}
-    OPT_FORMAT_BRIEF: ${{ inputs.OptFormatBrief }}
-    OPT_FORMAT_JSON: ${{ inputs.OptFormatJson }}
-    OPT_OPTIMIZATION: ${{ inputs.OptOptimize }}
-    OPT_TRACE: ${{ inputs.OptTrace }}
-    OPT_VERBOSE: ${{ inputs.OptVerbose }}
-    RUN_ON_ERROR: ${{ inputs.RunOnError }}
-    RUN_ON_EXIT: ${{ inputs.RunOnExit }}
-    RUN_ON_FAIL: ${{ inputs.RunOnFail }}
-    RUN_ON_SET: ${{ inputs.RunOnSet }}
-    RUN_ON_START: ${{ inputs.RunOnStart }}
-    RUN_ON_SUCCESS: ${{ inputs.RunOnSuccess }}
-    RUN_ON_WARN: ${{ inputs.RunOnWarning }}
-    SCRIPT: ${{ inputs.Script }}
-    SETFILE: ${{ inputs.SetFile }}
-    SET_OPTS: ${{ inputs.SetOpts }}
-    SET_PARAMS: ${{ inputs.SetParams }}
-    TEST_EXPERT: ${{ inputs.TestExpert }}
-    TEST_REPORT_NAME: ${{ inputs.TestReportName }}
-    WORKDIR: /github/workspace
-branding:
-  icon: 'bar-chart'
-  color: 'green'
+  steps:
+    - name: Creates playbook
+      uses: DamianReeves/write-file-action@v1.3
+      with:
+        path: ansible/run.yml
+        write-mode: overwrite
+        contents: |
+          ---
+          - name: Run test
+            hosts: all
+            tasks:
+              - name: Include main role
+                ansible.builtin.import_role:
+                  name: ea31337.mt_runner
+                vars:
+                  metatrader_version: ${{ inputs.Version }}
+                  mt_runner_bt_mt4_config:
+                    AutoConfiguration: false
+                    DataServer: 127.0.0.1:443
+                    EnableDDE: false
+                    EnableNews: false
+                    Expert: ${{ inputs.Expert }}
+                    ExpertParameters: ${{ inputs.TestExpertParameters }}
+                    ExpertsDllConfirm: false
+                    ExpertsDllImport: true
+                    ExpertsEnable: true
+                    ExpertsExpImport: true
+                    ExpertsTrades: true
+                    ExpertsTradesConfirm: false
+                    FTPAccount: 12345
+                    FTPEnable: false
+                    FTPLogin: anonymous
+                    FTPPassiveMode: false
+                    FTPPassword: anonymous
+                    FTPPath: /inetpub
+                    FTPPeriod: 10
+                    FTPServer: ftp.example.com
+                    Login: ${{ inputs.Login }}
+                    Password: ${{ inputs.Password }}
+                    Period: ${{ inputs.Period }}
+                    Profile: default
+                    ProxyEnable: false
+                    ProxyLogin: user45
+                    ProxyPassword: xxx
+                    ProxyServer: example.com:3128
+                    ProxyType: HTTP
+                    Script: ${{ inputs.Script }}
+                    ScriptParameters:
+                    Server: ${{ inputs.Server }}
+                    Symbol: ${{ inputs.TestSymbol }}
+                    Template:  # popular.tpl
+                    TestDateEnable: true
+                    TestExpert: ${{ inputs.TestExpert }}
+                    TestExpertParameters: ${{ inputs.TestExpertParameters }}
+                    TestFromDate: ${{ inputs.TestFromDate }}
+                    TestModel: ${{ inputs.TestModel }}
+                    TestOptimization: ${{ inputs.TestOptimization }}
+                    TestPeriod: ${{ inputs.TestPeriod }}
+                    TestReplaceReport: ${{ inputs.TestReplaceReport }}
+                    TestReport: ${{ inputs.TestReport }}
+                    TestShutdownTerminal: true
+                    TestSpread: 10
+                    TestSymbol: ${{ inputs.TestSymbol }}
+                    TestToDate: ${{ inputs.TestToDate }}
+                    TestVisualEnable: false
+                  mt_runner_bt_mt5_config:
+                    Common:
+                      Login: ${{ inputs.Login }}
+                      Password: ${{ inputs.Password }}
+                      Server: ${{ inputs.Server }}
+                    StartUp:
+                      Expert: ${{ inputs.Expert }}
+                      ExpertParameters: ${{ inputs.TestExpertParameters }}
+                      Period: ${{ inputs.Period }}
+                      Script: ${{ inputs.Script }}
+                      ScriptParameters: ${{ inputs.TestScriptParameters }}
+                      Symbol: ${{ inputs.TestSymbol }}
+                      Template:
+                    Tester:
+                      Deposit: ${{ inputs.TestDeposit }}
+                      ExecutionMode: ${{ inputs.TestExecutionMode }}
+                      Expert: ${{ inputs.TestExpert }}
+                      ExpertParameters: ${{ inputs.TestExpertParameters }}
+                      ForwardDate:
+                      ForwardMode:
+                      FromDate: ${{ inputs.TestFromDate }}
+                      Leverage: ${{ inputs.TestLeverage }}
+                      Login: ${{ inputs.Login }}
+                      Model: ${{ inputs.TestModel }}
+                      Optimizaton: ${{ inputs.TestOptimization }}
+                      OptimizationCriterion: ${{ inputs.TestOptimizationCriterion }}
+                      Period: ${{ inputs.TestPeriod }}
+                      Report: ${{ inputs.TestReport }}
+                      ReplaceReport: ${{ inputs.TestReplaceReport }}
+                      ShutdownTerminal: 1
+                      Symbol: ${{ inputs.TestSymbol }}
+                      ToDate: ${{ inputs.TestToDate }}
+                      Visual: 0
+                  mt_runner_get_url_list:
+                    - dest: "{{ mt_runner_mt_path }}/MQL${{ inputs.Version }}/Experts"
+                      url: "${{ inputs.UrlExpert }}"
+    - name: Runs playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        configuration: |
+          [defaults]
+          nocows = false
+          stdout_callback = yaml
+        directory: ${{ github.workspace }}/ansible
+        options: |
+          --connection local
+          --inventory localhost,
+          --verbose
+        playbook: run.yml
+        requirements: requirements.yml
+  using: composite

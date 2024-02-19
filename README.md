@@ -48,86 +48,66 @@ with:
 
 ## Inputs
 
-### Main Inputs
+### Common
+
+#### `Login`
+
+Account number.
+
+#### `Password`
+
+Password to the account.
+
+### `Server`
+
+Trade server.
+
+### Start Up
+
+#### `Expert`
+
+The name of the EA file to run.
+
+#### `Period`
+
+The default timeframe of the chart.
 
 #### `Script`
 
-The name of the script to run.
+The name of the script file to run.
+
+### Tester
+
+#### `Optimization`
+
+#### `TestDeposit`
+
+Initial deposit to use for testing. MT5 only.
 
 #### `TestExpert`
 
-The name of the Expert Advisor to test.
+The name of the Expert Advisor file to test.
 
-### Backtest Inputs
+#### `TestFromDate`
 
-#### `BtPair` (string)
+The date to start testing (yyyy.mm.dd).
 
-Symbol pair to use. Default: *EURUSD*.
+#### `TestExecutionMode`
 
-#### `BtCurrency` (string)
+Trading execution mode. Default *0* (normal).
 
-Base currency to use. Default: *USD*.
+#### `TestExpertParameters`
 
-#### `BtDeposit` (int)
+The name of the SET file with EA parameters.
 
-Deposit amount to use. Default: *10000*.
+#### `TestLeverage`
 
-#### `BtDigits` (int)
+Leverage to use for testing/optimization.
 
-Specifies number of digits after decimal point
-for the current symbol prices (default: 5).
+#### `TestModel` (int)
 
-#### `BtSpread` (int)
-
-Specifies spread to use in points (e.g. 10).
-
-#### `BtDays` (int/string)
-
-Specifies range of days in each month to test (default: 1-31).
-
-#### `BtMonths` (int/string)
-
-Specifies range of months in each year to test (default: 1).
-
-#### `BtYears` (int/string)
-
-Specifies year or range of years to test (default: 2019).
-
-#### `SetFile` (string)
-
-Specifies SET file to use for the test.
-
-#### `SetOpts` (string)
-
-Specifies comma-separated custom params to set for EA (e.g. SomeOption=1,AnotherOption=0).
-
-#### `TestPeriod` (string)
-
-Timeframe to use for the test (default: *M30*).
-
-### Test Results
-
-#### `BtDest` (string)
-
-Specifies directory to copy the results.
-
-Default: */github/workspace* (indicated by github.workspace variable).
-
-#### `TestReportName` (string)
-
-Specifies the name of the test report file.
-
-Default: *tester/Report*.
-
-### Optimization Inputs
-
-#### `OptOptimize` (bool)
-
-Runs test in optimization mode.
-
-#### `BtTestModel` (int)
-
-Specifies type of backtest data being tested.
+Specifies type of modelling to use.
+Default *1* (1 minute OHLC).
 
 Values:
 
@@ -135,80 +115,47 @@ Values:
 - 1 - Control points
 - 2 - Open prices only
 
-#### `TestLimitOpts` (string)
+#### `TestOptimization`
 
-Specifies EA limit test parameters
-in a sequence of comma-separated values (e.g. *genetic=0,maxdrawdown_enable=1,maxdrawdown=20.00*).
+Specifies testing mode. Default: *0* (backtest).
 
-#### `SetParams` (string)
+#### `TestOptimizationCriterion` (int)
 
-Specifies parameters to optimize in SET file (`SetFile`)
-in a sequence of comma-separated values.
+Specifies optimization criterion. MT5 only.
 
-### Run Inputs
+#### `TestPeriod`
 
-#### `RunOnStart` (string)
+Timeframe to use for the test.
 
-Runs command on startup (before the test).
+#### `TestReport`
 
-Default: *clean_sources* (to remove source code files from the platform directory).
+Specifies the name of the test report file.
 
-#### `RunOnSet` (string)
+#### `TestReplaceReport` (bool)
 
-Runs command on SET configuration (e.g. `file_get URL`).
+Specifies whether to enable overwriting of the report file.
 
-#### `RunOnSuccess` (string)
+#### `TestScriptParameters`
 
-Runs command after successful test.
+The name of the SET file with script parameters.
 
-#### `RunOnError` (string)
+#### `TestSpread`
 
-Runs command on test error (including warnings).
+Specifies spread to use in points (e.g. 10). MT4 only.
 
-#### `RunOnExit` (string)
+#### `TestSymbol`
 
-Runs command on exit (after the test).
+Symbol pair for the test to use. Default: *EURUSD*.
 
-#### `RunOnFail` (string)
+#### `TestToDate`
 
-Runs command after test failure.
+The date to finish testing (yyyy.mm.dd).
 
-#### `RunOnWarning` (string)
+### Platform
 
-Runs command on test warnings (excluding errors).
+#### `Version`
 
-### Result Inputs
-
-#### `OptFormatBrief` (bool)
-
-Converts test report file to brief text format. Default: *false*.
-
-#### `OptFormatJson` (bool)
-
-Converts test report file to JSON formatted file. Default: *false*.
-
-### Advanced Inputs
-
-#### `GitHubApiToken` (string)
-
-Specifies GitHub Personal access token (PAT) to increase API limits.
-
-#### `MtDest` (string)
-
-Destination path to install MetaTrader platform.
-Default is the working directory (e.g. `/github/workspace`).
-
-#### `MtVersion` (string)
-
-Version of the MetaTrader platform to install. Default: *4.0.0.1382*.
-
-#### `OptTrace` (bool)
-
-Enables trace mode. It provides extensive debugging messages. Default: *false*.
-
-#### `OptVerbose` (bool)
-
-Enables verbose mode. It provides more detailed messages. Default: *false*.
+Version of platform to use. Default: *5*.
 
 <!--
 ## Outputs

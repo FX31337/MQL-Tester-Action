@@ -10,40 +10,36 @@ on:
       - '*.md'
 
 jobs:
-  Scripts:
+  ea-mt4:
+    name: Run EA (MT4)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Run PrintPaths
+      - uses: actions/checkout@v4
+      - name: Run Libre (4)
         uses: ./
         with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          Script: "PrintPaths"
-  Experts:
+          TestExpert: EA31337-Libre-v1.013.ex4
+          TestFromDate: 2020.01.01
+          TestToDate: 2020.01.12
+          UrlExpert: >-
+            https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex4
+          Version: 4
+    timeout-minutes: 20
+  ea-mt5:
+    name: Run EA (MT5)
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 2
     steps:
-      - uses: actions/checkout@v3
-      - name: Run TestBands
+      - uses: actions/checkout@v4
+      - name: Run Libre (5)
         uses: ./
         with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          TestExpert: "TestBands.mq4"
-      - name: Run TestEnvelopes
-        uses: ./
-        with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          TestExpert: "TestEnvelopes.mq4"
-          TestPeriod: M1
-          RunOnFail: "exit 0"
-      - name: Run TestTimeframes
-        uses: ./
-        with:
-          OptTrace: ${{ runner.debug }}
-          OptVerbose: true
-          TestExpert: "TestTimeframes.mq4"
+          Login: ${{ secrets.MT5_LOGIN }}
+          Password: ${{ secrets.MT5_PASSWORD }}
+          Server: MetaQuotes-Demo
+          TestExpert: EA31337-Libre-v1.013.ex5
+          TestFromDate: 2024.01.01
+          TestToDate: 2024.01.12
+          UrlExpert: >-
+            https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
+          Version: 5
+    timeout-minutes: 20

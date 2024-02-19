@@ -17,17 +17,10 @@ on:
       - 'Dockerfile'
 
 jobs:
-  Dockerfile:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: brpaz/hadolint-action@master
-        with:
-          dockerfile: Dockerfile
   Markdown:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: markdownlint-cli
         uses: nosborn/github-action-markdown-cli@v1.1.1
         with:
@@ -36,7 +29,7 @@ jobs:
   ShellCheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Shell Check
         uses: luizm/action-sh-checker@master
         env:
@@ -47,7 +40,7 @@ jobs:
   YAML:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: YAML check (yamllint)
         uses: ibiqlik/action-yamllint@master
         with:
