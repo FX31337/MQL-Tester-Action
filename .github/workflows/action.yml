@@ -8,13 +8,6 @@ on:
   push:
     paths-ignore:
       - '*.md'
-  workflow_dispatch:
-    inputs:
-      debug_enabled:
-        type: boolean
-        description: Run the build with tmate debugging enabled
-        required: false
-        default: false
 
 jobs:
   ea-mt4:
@@ -22,11 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Enable tmate debugging of manually-triggered workflows if the input option was provided.
-      - if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
-        uses: mxschmitt/action-tmate@v3
-        with:
-          detached: true
       - name: Run Libre (4)
         uses: ./
         with:
