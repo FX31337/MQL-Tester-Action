@@ -76,6 +76,9 @@ inputs:
   UrlExpert:
     default: https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
     description: URL of Expert Advisor to download.
+  UrlPlatform:
+    default: https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
+    description: URL of the platform to install.
   Version:
     default: 5
     description: Version of platform to use.
@@ -100,6 +103,7 @@ runs:
                 ansible.builtin.import_role:
                   name: ea31337.mt_runner
                 vars:
+                  metatrader_setup_url: ${{ inputs.UrlPlatform }}
                   metatrader_version: ${{ inputs.Version }}
                   mt_runner_bt_mt4_config:
                     AutoConfiguration: false

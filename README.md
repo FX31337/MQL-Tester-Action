@@ -157,6 +157,10 @@ The date to finish testing (yyyy.mm.dd).
 
 URL of Expert Advisor to download.
 
+#### `UrlPlatform`
+
+URL of the platform to install.
+
 ### Platform
 
 #### `Version`
