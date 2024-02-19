@@ -186,6 +186,18 @@ runs:
                   mt_runner_get_url_list:
                     - dest: "{{ mt_runner_mt_path }}/MQL${{ inputs.Version }}/Experts"
                       url: "${{ inputs.UrlExpert }}"
+    - name: Creates requirements
+      uses: DamianReeves/write-file-action@v1.3
+      with:
+        path: ansible/requirements.yml
+        write-mode: overwrite
+        contents: |
+          ---
+          roles:
+            - name: ea31337.mt_runner
+              scm: git
+              src: https://github.com/EA31337/ansible-role-mt-runner.git
+              version: dev
     - name: Runs playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
@@ -193,7 +205,7 @@ runs:
           [defaults]
           nocows = false
           stdout_callback = yaml
-        directory: ${{ github.workspace }}/ansible
+        directory: ansible
         options: |
           --connection local
           --inventory localhost,
