@@ -151,6 +151,12 @@ Symbol pair for the test to use. Default: *EURUSD*.
 
 The date to finish testing (yyyy.mm.dd).
 
+### Other
+
+#### `UrlExpert`
+
+URL of Expert Advisor to download.
+
 ### Platform
 
 #### `Version`
