@@ -20,6 +20,7 @@ jobs:
         with:
           TestExpert: EA31337-Libre-v1.013.ex4
           TestFromDate: 2020.01.01
+          TestSymbol: EURUSD
           TestToDate: 2020.01.12
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex4
@@ -43,6 +44,7 @@ jobs:
           Server: MetaQuotes-Demo
           TestExpert: EA31337-Libre-v1.013.ex5
           TestFromDate: 2024.01.01
+          TestSymbol: EURUSD
           TestToDate: 2024.01.12
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
