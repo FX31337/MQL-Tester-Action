@@ -18,13 +18,13 @@ For full documentation, please read: [GitHub Actions Documentation](https://help
 ### Latest release
 
 ```yaml
-uses: fx31337/mql-tester-action@v1
+uses: fx31337/mql-tester-action@v2
 ```
 
 ### Specific release
 
 ```yaml
-uses: fx31337/mql-tester-action@v1.0.1
+uses: fx31337/mql-tester-action@v2.0.0
 ```
 
 Note: Check _Releases_ for more details.
@@ -40,10 +40,17 @@ uses: fx31337/mql-tester-action@master
 ```yaml
 uses: fx31337/mql-tester-action@master
 with:
-    TestExpert: Dummy
-    BtPair: EURUSD
-    BtMonths: 1-2
-    BtYears: 2021
+  Login: ${{ secrets.MT5_LOGIN }}
+  Password: ${{ secrets.MT5_PASSWORD }}
+  Server: MetaQuotes-Demo
+  TestExpert: EA31337-Libre-v1.013.ex5
+  TestFromDate: 2024.01.01
+  TestPeriod: M15
+  TestSymbol: EURUSD
+  TestToDate: 2024.01.12
+  UrlExpert: >-
+    https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
+  Version: 5
 ```
 
 ## Inputs
