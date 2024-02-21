@@ -149,7 +149,7 @@ runs:
                     TestPeriod: ${{ inputs.TestPeriod }}
                     TestReplaceReport: ${{ inputs.TestReplaceReport }}
                     TestReport: ${{ inputs.TestReport }}
-                    TestShutdownTerminal: 1
+                    TestShutdownTerminal: !!str true
                     TestSpread: 10
                     TestSymbol: ${{ inputs.TestSymbol }}
                     TestToDate: ${{ inputs.TestToDate }}
@@ -183,7 +183,7 @@ runs:
                       Period: ${{ inputs.TestPeriod }}
                       Report: ${{ inputs.TestReport }}
                       ReplaceReport: ${{ inputs.TestReplaceReport }}
-                      ShutdownTerminal: 1
+                      ShutdownTerminal: !!str true
                       Symbol: ${{ inputs.TestSymbol }}
                       ToDate: ${{ inputs.TestToDate }}
                       Visual: 0
