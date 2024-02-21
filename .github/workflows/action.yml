@@ -18,12 +18,20 @@ jobs:
       - name: Run Libre (4)
         uses: ./
         with:
+          Login: 12345
+          Password: 12345
           TestExpert: EA31337-Libre-v1.013.ex4
           TestFromDate: 2020.01.01
+          TestPeriod: M15
+          TestSymbol: EURUSD
           TestToDate: 2020.01.12
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex4
+          UrlPlatform: >-
+            https://download.mql5.com/cdn/web/3315/mt4/xm4setup.exe
           Version: 4
+      - if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
     timeout-minutes: 20
   ea-mt5:
     name: Run EA (MT5)
@@ -38,8 +46,12 @@ jobs:
           Server: MetaQuotes-Demo
           TestExpert: EA31337-Libre-v1.013.ex5
           TestFromDate: 2024.01.01
+          TestPeriod: M15
+          TestSymbol: EURUSD
           TestToDate: 2024.01.12
           UrlExpert: >-
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
           Version: 5
+      - if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
     timeout-minutes: 20

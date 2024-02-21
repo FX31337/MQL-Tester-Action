@@ -76,6 +76,9 @@ inputs:
   UrlExpert:
     default: https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
     description: URL of Expert Advisor to download.
+  UrlPlatform:
+    default: https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe
+    description: URL of the platform to install.
   Version:
     default: 5
     description: Version of platform to use.
@@ -100,24 +103,25 @@ runs:
                 ansible.builtin.import_role:
                   name: ea31337.mt_runner
                 vars:
+                  metatrader_setup_url: ${{ inputs.UrlPlatform }}
                   metatrader_version: ${{ inputs.Version }}
                   mt_runner_bt_mt4_config:
-                    AutoConfiguration: false
+                    AutoConfiguration: !!str false
                     DataServer: 127.0.0.1:443
-                    EnableDDE: false
-                    EnableNews: false
+                    EnableDDE: !!str false
+                    EnableNews: !!str false
                     Expert: ${{ inputs.Expert }}
                     ExpertParameters: ${{ inputs.TestExpertParameters }}
-                    ExpertsDllConfirm: false
-                    ExpertsDllImport: true
-                    ExpertsEnable: true
-                    ExpertsExpImport: true
-                    ExpertsTrades: true
+                    ExpertsDllConfirm: !!str false
+                    ExpertsDllImport: !!str true
+                    ExpertsEnable: !!str true
+                    ExpertsExpImport: !!str true
+                    ExpertsTrades: !!str true
                     ExpertsTradesConfirm: false
                     FTPAccount: 12345
-                    FTPEnable: false
+                    FTPEnable: !!str false
                     FTPLogin: anonymous
-                    FTPPassiveMode: false
+                    FTPPassiveMode: !!str false
                     FTPPassword: anonymous
                     FTPPath: /inetpub
                     FTPPeriod: 10
@@ -126,7 +130,7 @@ runs:
                     Password: ${{ inputs.Password }}
                     Period: ${{ inputs.Period }}
                     Profile: default
-                    ProxyEnable: false
+                    ProxyEnable: !!str false
                     ProxyLogin: user45
                     ProxyPassword: xxx
                     ProxyServer: example.com:3128
@@ -136,7 +140,7 @@ runs:
                     Server: ${{ inputs.Server }}
                     Symbol: ${{ inputs.TestSymbol }}
                     Template:  # popular.tpl
-                    TestDateEnable: true
+                    TestDateEnable: !!str true
                     TestExpert: ${{ inputs.TestExpert }}
                     TestExpertParameters: ${{ inputs.TestExpertParameters }}
                     TestFromDate: ${{ inputs.TestFromDate }}
@@ -145,11 +149,11 @@ runs:
                     TestPeriod: ${{ inputs.TestPeriod }}
                     TestReplaceReport: ${{ inputs.TestReplaceReport }}
                     TestReport: ${{ inputs.TestReport }}
-                    TestShutdownTerminal: true
+                    TestShutdownTerminal: !!str true
                     TestSpread: 10
                     TestSymbol: ${{ inputs.TestSymbol }}
                     TestToDate: ${{ inputs.TestToDate }}
-                    TestVisualEnable: false
+                    TestVisualEnable: !!str false
                   mt_runner_bt_mt5_config:
                     Common:
                       Login: ${{ inputs.Login }}
@@ -169,7 +173,7 @@ runs:
                       Expert: ${{ inputs.TestExpert }}
                       ExpertParameters: ${{ inputs.TestExpertParameters }}
                       ForwardDate:
-                      ForwardMode:
+                      ForwardMode: 0
                       FromDate: ${{ inputs.TestFromDate }}
                       Leverage: ${{ inputs.TestLeverage }}
                       Login: ${{ inputs.Login }}
@@ -186,6 +190,18 @@ runs:
                   mt_runner_get_url_list:
                     - dest: "{{ mt_runner_mt_path }}/MQL${{ inputs.Version }}/Experts"
                       url: "${{ inputs.UrlExpert }}"
+    - name: Creates requirements
+      uses: DamianReeves/write-file-action@v1.3
+      with:
+        path: ansible/requirements.yml
+        write-mode: overwrite
+        contents: |
+          ---
+          roles:
+            - name: ea31337.mt_runner
+              scm: git
+              src: https://github.com/EA31337/ansible-role-mt-runner.git
+              version: dev
     - name: Runs playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
@@ -193,7 +209,7 @@ runs:
           [defaults]
           nocows = false
           stdout_callback = yaml
-        directory: ${{ github.workspace }}/ansible
+        directory: ansible
         options: |
           --connection local
           --inventory localhost,
