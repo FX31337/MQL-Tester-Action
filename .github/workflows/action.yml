@@ -18,6 +18,8 @@ jobs:
       - name: Run Libre (4)
         uses: ./
         with:
+          Login: 12345
+          Password: 12345
           TestExpert: EA31337-Libre-v1.013.ex4
           TestFromDate: 2020.01.01
           TestPeriod: M15
