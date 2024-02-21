@@ -106,22 +106,22 @@ runs:
                   metatrader_setup_url: ${{ inputs.UrlPlatform }}
                   metatrader_version: ${{ inputs.Version }}
                   mt_runner_bt_mt4_config:
-                    AutoConfiguration: false
+                    AutoConfiguration: !!str false
                     DataServer: 127.0.0.1:443
-                    EnableDDE: false
-                    EnableNews: false
+                    EnableDDE: !!str false
+                    EnableNews: !!str false
                     Expert: ${{ inputs.Expert }}
                     ExpertParameters: ${{ inputs.TestExpertParameters }}
-                    ExpertsDllConfirm: false
-                    ExpertsDllImport: true
-                    ExpertsEnable: true
-                    ExpertsExpImport: true
-                    ExpertsTrades: true
+                    ExpertsDllConfirm: !!str false
+                    ExpertsDllImport: !!str true
+                    ExpertsEnable: !!str true
+                    ExpertsExpImport: !!str true
+                    ExpertsTrades: !!str true
                     ExpertsTradesConfirm: false
                     FTPAccount: 12345
-                    FTPEnable: false
+                    FTPEnable: !!str false
                     FTPLogin: anonymous
-                    FTPPassiveMode: false
+                    FTPPassiveMode: !!str false
                     FTPPassword: anonymous
                     FTPPath: /inetpub
                     FTPPeriod: 10
@@ -130,7 +130,7 @@ runs:
                     Password: ${{ inputs.Password }}
                     Period: ${{ inputs.Period }}
                     Profile: default
-                    ProxyEnable: false
+                    ProxyEnable: !!str false
                     ProxyLogin: user45
                     ProxyPassword: xxx
                     ProxyServer: example.com:3128
@@ -140,7 +140,7 @@ runs:
                     Server: ${{ inputs.Server }}
                     Symbol: ${{ inputs.TestSymbol }}
                     Template:  # popular.tpl
-                    TestDateEnable: true
+                    TestDateEnable: !!str true
                     TestExpert: ${{ inputs.TestExpert }}
                     TestExpertParameters: ${{ inputs.TestExpertParameters }}
                     TestFromDate: ${{ inputs.TestFromDate }}
@@ -153,7 +153,7 @@ runs:
                     TestSpread: 10
                     TestSymbol: ${{ inputs.TestSymbol }}
                     TestToDate: ${{ inputs.TestToDate }}
-                    TestVisualEnable: false
+                    TestVisualEnable: !!str false
                   mt_runner_bt_mt5_config:
                     Common:
                       Login: ${{ inputs.Login }}
@@ -173,7 +173,7 @@ runs:
                       Expert: ${{ inputs.TestExpert }}
                       ExpertParameters: ${{ inputs.TestExpertParameters }}
                       ForwardDate:
-                      ForwardMode:
+                      ForwardMode: 0
                       FromDate: ${{ inputs.TestFromDate }}
                       Leverage: ${{ inputs.TestLeverage }}
                       Login: ${{ inputs.Login }}
