@@ -31,7 +31,6 @@ jobs:
             https://download.mql5.com/cdn/web/3315/mt4/xm4setup.exe
           Version: 4
       - if: ${{ failure() }}
-        timeout-minutes: 10
         uses: mxschmitt/action-tmate@v3
     timeout-minutes: 20
   ea-mt5:
@@ -54,6 +53,5 @@ jobs:
             https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
           Version: 5
       - if: ${{ failure() }}
-        timeout-minutes: 10
         uses: mxschmitt/action-tmate@v3
     timeout-minutes: 20
