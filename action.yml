@@ -216,4 +216,6 @@ runs:
           --verbose
         playbook: run.yml
         requirements: requirements.yml
+    - run: echo "MT_FACT=$(jq -c . < /etc/ansible/facts.d/metatrader.fact)" >> $GITHUB_ENV
+    - run: echo '${{ fromJson(env.MT_FACT) }}'
   using: composite
