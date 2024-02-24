@@ -216,6 +216,21 @@ runs:
           --verbose
         playbook: run.yml
         requirements: requirements.yml
-    - run: echo "MT_FACT=$(jq -c . < /etc/ansible/facts.d/metatrader.fact)" >> $GITHUB_ENV
-    - run: echo '${{ fromJson(env.MT_FACT) }}'
+    - name: Sets output
+      env:
+        MT_VERSION: "${{ inputs.Version }}"
+      run: |
+        import json, os
+        try:
+          with open("/etc/ansible/facts.d/metatrader.fact", "r") as file:
+            data = json.load(file)
+            mt_path = data.get(os.getenv("MT_VERSION")).get("path")
+          with open(os.getenv("GITHUB_ENV"), "a") as file_env:
+            file_env.write(f"MT_PATH={mt_path}\n")
+        except FileNotFoundError:
+          print("Error: File not found.")
+      shell: python
+    - name: Prints path
+      run: echo "$MT_PATH"
+      shell: bash
   using: composite
