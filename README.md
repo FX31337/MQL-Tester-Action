@@ -174,13 +174,11 @@ URL of the platform to install.
 
 Version of platform to use. Default: *5*.
 
-<!--
 ## Outputs
 
-### `foo`
+### `platform_fact`
 
-Foo bar.
--->
+Platform fact output.
 
 ### Support
 

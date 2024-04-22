@@ -84,9 +84,11 @@ inputs:
     description: Version of platform to use.
 name: EA Tester
 
-# outputs:
-#  foo: # id of output
-#    description: 'Foo'
+outputs:
+  platform_fact:
+    description: Platform fact output.
+    value: ${{ steps.platform-fact-output.outputs.platform-fact || '{}' }}
+
 runs:
   steps:
     - name: Creates playbook
@@ -216,21 +218,24 @@ runs:
           --verbose
         playbook: run.yml
         requirements: requirements.yml
-    - name: Sets output
+    - id: platform-fact-output
+      name: Sets platform fact output
       env:
         MT_VERSION: "${{ inputs.Version }}"
       run: |
         import json, os
         try:
           with open("/etc/ansible/facts.d/metatrader.fact", "r") as file:
-            data = json.load(file)
-            mt_path = data.get(os.getenv("MT_VERSION")).get("path")
-          with open(os.getenv("GITHUB_ENV"), "a") as file_env:
-            file_env.write(f"MT_PATH={mt_path}\n")
+            fact_obj = json.load(file)
         except FileNotFoundError:
-          print("Error: File not found.")
+          print("Error: Fact file not found.")
+        # Serialize the data back into a JSON string.
+        fact_plain = json.dumps(fact_obj)
+        try:
+          with open(os.getenv("GITHUB_OUTPUT"), "a") as file_out:
+            file_out.write(f"platform-fact={fact_plain}\n")
+            print(f"platform-fact={fact_plain}\n")
+        except FileNotFoundError:
+          print("Error: Output file not found.")
       shell: python
-    - name: Prints path
-      run: echo "$MT_PATH"
-      shell: bash
   using: composite
