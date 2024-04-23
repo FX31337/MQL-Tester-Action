@@ -18,8 +18,8 @@ jobs:
       - name: Run Libre (4)
         uses: ./
         with:
-          Login: 12345
-          Password: 12345
+          Login: ${{ secrets.MT_RUNNER_MT4_LOGIN || '12345' }}
+          Password: ${{ secrets.MT_RUNNER_MT4_PASSWORD || 'SETME' }}
           TestExpert: EA31337-Libre-v1.013.ex4
           TestFromDate: 2020.01.01
           TestPeriod: M15
@@ -41,8 +41,8 @@ jobs:
       - name: Run Libre (5)
         uses: ./
         with:
-          Login: ${{ secrets.MT5_LOGIN }}
-          Password: ${{ secrets.MT5_PASSWORD }}
+          Login: ${{ secrets.MT_RUNNER_MT5_LOGIN || '12345' }}
+          Password: ${{ secrets.MT_RUNNER_MT5_PASSWORD || 'SETME' }}
           Server: MetaQuotes-Demo
           TestExpert: EA31337-Libre-v1.013.ex5
           TestFromDate: 2024.01.01
