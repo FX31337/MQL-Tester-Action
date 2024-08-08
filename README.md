@@ -9,11 +9,13 @@
 [![Channel][tg-channel-image]][tg-channel-link]
 [![Edit][gh-edit-badge]][gh-edit-link]
 
-This GitHub Action runs MQL programs (such as Expert Advisors, indicators or scripts).
+This GitHub Action runs MQL programs
+(such as Expert Advisors, indicators or scripts).
 
 ## Usage
 
-For full documentation, please read: [GitHub Actions Documentation](https://help.github.com/en/actions).
+For full documentation, please read:
+[GitHub Actions Documentation](https://help.github.com/en/actions).
 
 ### Latest release
 
