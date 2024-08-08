@@ -84,9 +84,11 @@ inputs:
     description: Version of platform to use.
 name: EA Tester
 
-# outputs:
-#  foo: # id of output
-#    description: 'Foo'
+outputs:
+  platform_fact:
+    description: Platform fact output.
+    value: ${{ steps.platform-fact-output.outputs.platform-fact || '{}' }}
+
 runs:
   steps:
     - name: Creates playbook
@@ -190,6 +192,7 @@ runs:
                   mt_runner_get_url_list:
                     - dest: "{{ mt_runner_mt_path }}/MQL${{ inputs.Version }}/Experts"
                       url: "${{ inputs.UrlExpert }}"
+                  mt_runner_timeout: 240
     - name: Creates requirements
       uses: DamianReeves/write-file-action@v1.3
       with:
@@ -216,4 +219,24 @@ runs:
           --verbose
         playbook: run.yml
         requirements: requirements.yml
+    - id: platform-fact-output
+      name: Sets platform fact output
+      env:
+        MT_VERSION: "${{ inputs.Version }}"
+      run: |
+        import json, os
+        try:
+          with open("/etc/ansible/facts.d/metatrader.fact", "r") as file:
+            fact_obj = json.load(file)
+        except FileNotFoundError:
+          print("Error: Fact file not found.")
+        # Serialize the data back into a JSON string.
+        fact_plain = json.dumps(fact_obj)
+        try:
+          with open(os.getenv("GITHUB_OUTPUT"), "a") as file_out:
+            file_out.write(f"platform-fact={fact_plain}\n")
+            print(f"platform-fact={fact_plain}\n")
+        except FileNotFoundError:
+          print("Error: Output file not found.")
+      shell: python
   using: composite
