@@ -71,6 +71,12 @@ Password to the account.
 
 Trade server.
 
+### Runner
+
+#### `RunnerTimeout`
+
+Time to wait for platform to finish the test (in seconds). Default: *600*.
+
 ### Start Up
 
 #### `Expert`

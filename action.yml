@@ -21,6 +21,9 @@ inputs:
   Period:
     default:
     description: The default timeframe of the chart.
+  RunnerTimeout:
+    default: 600
+    description: Time to wait for platform to finish the test.
   Server:
     default:
     description: Trade server.
@@ -192,7 +195,7 @@ runs:
                   mt_runner_get_url_list:
                     - dest: "{{ mt_runner_mt_path }}/MQL${{ inputs.Version }}/Experts"
                       url: "${{ inputs.UrlExpert }}"
-                  mt_runner_timeout: 240
+                  mt_runner_timeout: ${{ inputs.RunnerTimeout }}
     - name: Creates requirements
       uses: DamianReeves/write-file-action@v1.3
       with:
