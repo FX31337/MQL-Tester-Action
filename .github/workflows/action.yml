@@ -60,6 +60,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: Vampire/setup-wsl@v3
       - name: Run Libre (5)
         uses: ./
         with:
