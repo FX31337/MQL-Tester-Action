@@ -209,6 +209,7 @@ runs:
               src: https://github.com/EA31337/ansible-role-mt-runner.git
               version: dev
     - name: Runs playbook
+      shell: wsl-bash {0}
       uses: dawidd6/action-ansible-playbook@v2
       with:
         configuration: |
