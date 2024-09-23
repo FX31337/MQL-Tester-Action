@@ -55,3 +55,25 @@ jobs:
       - if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3
     timeout-minutes: 20
+  ea-mt5-win:
+    name: Run EA (MT5) on Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Libre (5)
+        uses: ./
+        with:
+          Login: ${{ secrets.MT_RUNNER_MT5_LOGIN || '12345' }}
+          Password: ${{ secrets.MT_RUNNER_MT5_PASSWORD || 'SETME' }}
+          Server: MetaQuotes-Demo
+          TestExpert: EA31337-Libre-v1.013.ex5
+          TestFromDate: 2024.01.01
+          TestPeriod: M15
+          TestSymbol: EURUSD
+          TestToDate: 2024.01.12
+          UrlExpert: >-
+            https://github.com/EA31337/EA31337-Libre/releases/download/v1.013/EA31337-Libre-v1.013.ex5
+          Version: 5
+      - if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+    timeout-minutes: 20
