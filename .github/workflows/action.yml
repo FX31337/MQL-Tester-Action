@@ -4,9 +4,11 @@ name: Action
 on:
   pull_request:
     paths-ignore:
+      - '.github/workflows/check.yml'
       - '*.md'
   push:
     paths-ignore:
+      - '.github/workflows/check.yml'
       - '*.md'
 
 jobs:
