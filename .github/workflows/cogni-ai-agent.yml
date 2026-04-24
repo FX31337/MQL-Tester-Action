@@ -1,0 +1,134 @@
+---
+# See: <https://opencode.ai/docs>
+name: Cogni AI Agent
+# yamllint disable-line rule:truthy
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - reopened
+  issue_comment:
+    types:
+      - created
+      - edited
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+  pull_request_review_comment:
+    types:
+      - created
+      - edited
+  workflow_dispatch:
+    inputs:
+      model:
+        default: opencode/gemini-3-flash
+        description: Model to use for OpenCode
+        options:
+          - opencode/big-pickle
+          - opencode/claude-3-5-haiku
+          - opencode/claude-haiku-4-5
+          - opencode/claude-opus-4-5
+          - opencode/claude-opus-4-6
+          - opencode/claude-sonnet-4
+          - opencode/claude-sonnet-4-5
+          - opencode/claude-sonnet-4-6
+          - opencode/gemini-3.1-pro
+          - opencode/gemini-3-flash
+          - opencode/glm-5
+          - opencode/glm-5.1
+          - opencode/gpt-5
+          - opencode/gpt-5-codex
+          - opencode/gpt-5-nano
+          - opencode/gpt-5.3-codex
+          - opencode/gpt-5.3-codex-spark
+          - opencode/gpt-5.4
+          - opencode/gpt-5.4-mini
+          - opencode/gpt-5.4-nano
+          - opencode/minimax-m2.5
+          - opencode/minimax-m2.5-free
+          - opencode/nemotron-3-super-free
+          - opencode/qwen3-coder
+          - opencode/qwen3.6-plus-free
+        required: true
+        type: choice
+      prompt:
+        description: Prompt for the agent
+        required: true
+        type: string
+jobs:
+  cogni-ai-agent:
+    name: Run Cogni AI agent
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name != 'issues' ||
+      !github.event.issue.pull_request
+    permissions:
+      contents: write
+      id-token: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false  # Prevents Duplicate header: "Authorization" error.
+      - uses: actions/setup-python@v6.1.0
+        with:
+          python-version: '3.12'
+      - name: Restore Python user site
+        id: python-user-site
+        uses: actions/cache@v5.0.1
+        with:
+          path: ~/.local
+          key: ${{ runner.os }}-pip-${{ hashFiles('.devcontainer/requirements.txt') }}
+      - name: Install Python dependencies
+        if: steps.python-user-site.outputs.cache-hit != 'true'
+        run: python -m pip install --user -r .devcontainer/requirements.txt
+      - name: Ensure local bin on PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      # See: <https://github.com/Cogni-AI-OU/cogni-ai-agent-action>
+      - name: Run Cogni AI Agent
+        uses: Cogni-AI-OU/cogni-ai-agent-action@main
+        with:
+          model: ${{ inputs.model }}
+          opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}  # <https://opencode.ai/auth>
+          permissions: |-
+            bash:
+              '*': deny
+              ansible*: allow
+              ansible-galaxy*: allow
+              ansible-playbook*: allow
+              awk*: allow
+              continue*: allow
+              cp*: allow
+              docker*: allow
+              ex*: allow
+              gh*: allow
+              gh pr review*: allow
+              git*: allow
+              hexdump*: allow
+              jq*: allow
+              links*: allow
+              mawk*: allow
+              molecule*: allow
+              pipx*: allow
+              pre-commit*: allow
+              printf*: allow
+              sed*: allow
+              set*: allow
+              time*: allow
+              timeout*: allow
+              touch*: allow
+              true*: allow
+              vim*: allow
+          # Use comment body if available, otherwise fall back to issue/PR body or manual input.
+          prompt: >-
+            ${{
+              github.event.comment.body ||
+              github.event.issue.body ||
+              github.event.pull_request.body ||
+              inputs.prompt
+            }}
