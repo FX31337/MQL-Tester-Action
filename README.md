@@ -4,7 +4,6 @@
 [![Tag][gh-tag-image]][gh-tag-link]
 [![Status][gha-image-action-master]][gha-link-action-master]
 [![Status][gha-image-check-master]][gha-link-check-master]
-[![Status][gha-image-docker-master]][gha-link-docker-master]
 [![Channel][tg-channel-image]][tg-channel-link]
 [![Edit][gh-edit-badge]][gh-edit-link]
 
@@ -208,6 +207,3 @@ Platform fact output.
 
 [gha-link-check-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3ACheck+branch%3Amaster
 [gha-image-check-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Check/badge.svg
-
-[gha-link-docker-master]: https://github.com/FX31337/MQL-Tester-Action/actions?query=workflow%3ADocker+branch%3Amaster
-[gha-image-docker-master]: https://github.com/FX31337/MQL-Tester-Action/workflows/Docker/badge.svg
