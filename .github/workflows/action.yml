@@ -10,6 +10,7 @@ on:
     paths-ignore:
       - '.github/workflows/check.yml'
       - '*.md'
+  workflow_dispatch:
 
 jobs:
   ea-mt4:
