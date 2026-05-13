@@ -6,4 +6,4 @@ roles:
   - name: ea31337.mt_runner
     scm: git
     src: https://github.com/EA31337/ansible-role-mt-runner.git
-    version: dev
+    version: master
